@@ -1,0 +1,65 @@
+name: build and Deploy mdBook
+
+on:
+  push:
+    branches-ignore:
+      - 'page'
+  pull_request:
+    branches:
+      - 'main'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source repo
+        uses: actions/checkout@v4
+        # with:
+        #     ref: 'main'
+
+      - name: Check EditorConfig compliance
+        uses: editorconfig-checker/action-editorconfig-checker@main
+
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v2
+        with:
+          mdbook-version: 'latest'
+
+      - name: Build book
+        run: mdbook build
+
+      - name: Upload book artifact
+        if: |
+          ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref != 'refs/heads/main') ||
+          (github.event_name == 'pull_request' && github.base_ref != 'main')
+        uses:  actions/upload-artifact@v4
+        with:
+          name: 'mdbook-build'
+          path: './book'
+
+      # - name: Set fixed date for commits
+      #   if: |
+      #     ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main') ||
+      #     (github.event_name == 'pull_request' && github.base_ref == 'main')
+      #   run: |
+      #     echo "GIT_AUTHOR_DATE=1970-01-01T00:00:00Z" >> $GITHUB_ENV
+      #     echo "GIT_COMMITTER_DATE=1970-01-01T00:00:00Z" >> $GITHUB_ENV
+
+      - name: Deploy to public repo
+        uses: peaceiris/actions-gh-pages@v4
+        if: |
+          ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main') ||
+          (github.event_name == 'pull_request' && github.base_ref == 'main')
+        with:
+          # external_repository: cyraivndle2/gpgtutorial # 目标仓库
+          publish_dir: ./book # 构建结果目录
+          publish_branch: page # 目标分支
+          force_orphan: true # 强制清除历史
+          # full_commit_message: "Update mdBook"
+          commit_message: "Update mdBook"
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          # personal_token: ${{ secrets.PAT_REFERENCE }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
