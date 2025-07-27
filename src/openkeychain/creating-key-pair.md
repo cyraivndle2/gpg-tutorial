@@ -1,0 +1,48 @@
+# 创建密钥对
+
+> **注意：**  
+> 如果你是第一次打开应用，请从 **第 2 步** 开始看。
+
+1. 在 OpenKeychain 密钥管理界面，点击右上角的三点按钮，然后点击“管理我的密钥”。
+
+    ![密钥管理界面菜单](creating-key-pair/home-page-popup.png)
+
+2. 点击“创建密钥”。
+
+    ![管理我的密钥](creating-key-pair/managing-my-keys.png)
+
+3. 输入关联密钥对的称谓，然后点击“下一步”。所输入的称谓应能够使收到公钥的人辨认出这个公钥的身份。
+
+    ![称谓](creating-key-pair/name.png)
+
+4. 输入关联密钥对的电子邮件地址，然后点击“下一步”。所输入的电子邮件地址应能够使收到公钥的人辨认出这个公钥的身份。
+
+    > 如果该密钥对需要用于支持 OpenPGP 的在线服务，如电子邮件、在线 Git 托管服务（如 GitHub）、公钥服务器等，则必须填写能够联系到你的电子邮件地址。  
+    >   
+    > 特殊的情况是 GitHub 如果启用了“Keep my email addresses private”（不公开我的电子邮件地址），则 Git 提交和 GPG 公钥需要使用 GitHub 提供的带有 `no-reply` 的电子邮件地址才能让该设置生效。详见 [这篇 GitHub 帮助文档第 8 条的 Note](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key#generating-a-gpg-key)。
+
+    ![电子邮件地址](creating-key-pair/email.png)
+
+5. 点击右上角的三点按钮，然后点击“更改密钥配置”。
+
+    ![更改密钥配置](creating-key-pair/changing-key-options.png)
+
+6. 点击“变更密码”。
+
+7. 为新创建的密钥对设置私钥密码。在“密码”和“重复密码”输入框中输入密码，然后点击“OK”按钮。
+
+    > **重要说明：**  
+    > 此处是为私钥设置 **私钥密码**。在存储私钥前，OpenKeychain 会使用该密码将私钥加密；在私钥使用前（如解密消息等），OpenKeychain 会要求用户输入该密码来临时解密私钥。这样做的目的是提高安全性，即使私钥意外泄露，也会因为缺少私钥密码而无法使用。  
+    > 因此私钥密码和私钥都很重要，只能自己持有，不能公开；且密码应有一定的复杂度，不应该和其他密码相同。
+
+    ![设置私钥密码](creating-key-pair/changing-key-password.png)
+
+8. 点击右上角的“保存”。
+
+    ![保存密钥设置](creating-key-pair/saving-key-settings.png)
+
+9. 点击右下角的“创建密钥”。
+
+    ![创建密钥](creating-key-pair/creating-key-button.png)
+
+10. 完成密钥对的创建。

@@ -1,0 +1,13 @@
+[book]
+authors = ["cyraivndle2"]
+language = "zh"
+multilingual = false
+src = "src"
+title = "非对称加密教程（GPG 教程）"
+description = "面向初学者的非对称加密软件（GnuPG、Gpg4win、Kleopatra、OpenKeychain）的原理介绍与图文使用教程。"
+
+[build]
+create-missing = false
+
+[output.html]
+git-repository-url = "https://github.com/cyraivndle2/gpg-tutorial"
