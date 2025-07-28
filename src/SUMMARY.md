@@ -39,7 +39,7 @@
 # 技巧 / 拓展
 
 - [文本分享网站（Pastebin）](pastebin.md)
-- [简单的安全与保密意识](security-and-secret.md)
+- [安全与保密意识](security-and-secret.md)
 
 ---
 
