@@ -1,0 +1,1242 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>非对称加密教程（GPG 教程）</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="面向初学者的非对称加密软件（GnuPG、Gpg4win、Kleopatra、OpenKeychain）的原理介绍与图文使用教程。">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">非对称加密教程（GPG 教程）</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/cyraivndle2/gpg-tutorial" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <blockquote>
+<p>本文版本为 <em>2.0.3-preview.5</em>。<br />
+采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。</p>
+</blockquote>
+<p>本文主要讲解非对称加密的基本原理和流程，并为 Kleopatra 和 OpenKeychain 两款支持 OpenPGP 标准的非对称加密软件提供对应的图文使用教程与技巧。</p>
+<p>本文编写目的是帮助无技术背景的初学者掌握非对称加密的使用。</p>
+<p>本文中的 <strong>蓝色的文字</strong> 为超链接，点击可以跳转到对应章节或者外部链接。</p>
+<h2 id="关于作者"><a class="header" href="#关于作者">关于作者</a></h2>
+<p>本教程的编写者们倾向于保持匿名，尽可能地不透露任何身份信息。</p>
+<h2 id="有问题"><a class="header" href="#有问题">有问题？</a></h2>
+<p>如果对本文有任何问题建议，欢迎在本文的 <a href="https://github.com/cyraivndle2/gpg-tutorial/" title="点击前往教程 GitHub 仓库">GitHub 仓库</a> 提交 Issue 或 Pull Request。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="介绍"><a class="header" href="#介绍">介绍</a></h1>
+<h2 id="对称加密"><a class="header" href="#对称加密">对称加密</a></h2>
+<p>你用过把文件加密压缩后再外发给朋友的方式，来规避聊天软件或网盘等平台的违规检测吗？这种方式属于对称加密，加密和解密都需要使用同一个密钥（密码）。</p>
+<p>不过这里存在一个问题：如何安全地告知朋友这个密钥呢？直接把密钥通过平台发给对方，平台背后的运营方也能通过查看你们之间的聊天记录知道这个密钥，这使得加密失去了意义。</p>
+<h2 id="非对称加密"><a class="header" href="#非对称加密">非对称加密</a></h2>
+<p>非对称加密解决了这个问题。它使用一对密钥：一个公钥（公开密钥）和一个私钥（私有密钥）。公钥可以对外分享，用来加密消息；私钥只能自己持有，用来解密消息。你的朋友使用你的公钥加密消息得到密文，这个密文只有你的私钥才能解密为可读的原始消息。其他人即使拿到密文，也会因为没有你的私钥而无法解密。此外，其他人也不能通过你的公钥反推出你的私钥。</p>
+<p>在实际使用中，通过非对称加密发送一条消息通常需要经过以下步骤：</p>
+<p><img src="introduction/steps.svg" alt="非对称加密步骤" /></p>
+<blockquote>
+<p>创建好的密钥对，和导入的公钥，可以重复使用，无需每次加密前重复相关操作。</p>
+</blockquote>
+<h2 id="pgpopenpgp与gpg"><a class="header" href="#pgpopenpgp与gpg">PGP、OpenPGP与GPG</a></h2>
+<p>在介绍非对称加密软件前，我们需要先了解三个名词的概念：</p>
+<ul>
+<li>Pretty Good Privacy（简称 <strong>PGP</strong>）是一款收费的商业数据加密软件，软件使用到非对称加密技术和对称加密技术。</li>
+<li><strong>OpenPGP</strong> 是一种开放的非对称加密标准，它基于与最初的 PGP 软件，制定了统一的加密消息、密钥和签名所需的格式和方法。</li>
+<li>GNU Privacy Guard（简称 <strong>GPG</strong> 或 GnuPG）是一款免费的数据加密软件，它完整实现了 OpenPGP 标准，同时也是后续提到的 Kleopatra 等图形界面加密软件的核心。</li>
+</ul>
+<p>在今天，指代 OpenPGP 功能时，PGP、OpenPGP 和 GPG 三者可以互换，例如 GPG 公钥和 OpenPGP 公钥是相同的概念。只有提及具体的加密工具时才需要区分。</p>
+<h2 id="选择加密软件"><a class="header" href="#选择加密软件">选择加密软件</a></h2>
+<p>本文主要介绍实现了 OpenPGP 标准的加密软件。不同的加密软件，只要都实现了 OpenPGP 标准，就能相互收发加密消息。</p>
+<p>以下是软件的介绍：</p>
+<ul>
+<li>Windows / Linux 用户推荐使用 <strong><a href="kleopatra.html">Kleopatra</a></strong>。</li>
+<li>Android 系统下有 <a href="openkeychain.html">OpenKeychain</a>，但是该软件已经停止维护，不再推荐使用。</li>
+<li>其他操作系统的用户请尝试在 <a href="https://www.openpgp.org/software/" title="点击前往外部站点">OpenPGP Sofware</a> 中寻找合适的软件，或自行搜索。</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="kleopatra"><a class="header" href="#kleopatra">Kleopatra</a></h1>
+<p>在本章中，你将学习 Kleopatra 的下载与安装，以及使用以下的功能：</p>
+<ul>
+<li>创建 OpenPGP 密钥对。</li>
+<li>导出自己的公钥，以及公钥的指纹。</li>
+<li>导入别人的公钥，并用自己的私钥对其认证。</li>
+<li>加密文本或文件。</li>
+<li>解密文本或文件。</li>
+</ul>
+<p>在完成加密软件的学习后，推荐你继续学习以下章节：</p>
+<ul>
+<li><a href="security-and-secret.html">简单的安全与保密意识</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="准备软件"><a class="header" href="#准备软件">准备软件</a></h1>
+<h2 id="windows"><a class="header" href="#windows">Windows</a></h2>
+<ol>
+<li>
+<p>浏览器打开 <a href="https://www.gpg4win.org/get-gpg4win.html" title="点击前往外部站点">Gpg4win 下载页面</a>。</p>
+</li>
+<li>
+<p>选择捐赠的金额，然后点击下载按钮下载软件。</p>
+<p>如果不打算捐赠，点击“$0”，然后点击“Download”按钮直接下载软件安装包。</p>
+<p><img src="kleopatra/preparing-software/downloading-without-donation.png" alt="不捐赠直接下载" /></p>
+</li>
+<li>
+<p>以管理员权限运行下载好的安装包。</p>
+</li>
+<li>
+<p>点击“下一步”按钮，进入选择组件界面。</p>
+<p><img src="kleopatra/preparing-software/choosing-components.png" alt="选择组件" /></p>
+</li>
+<li>
+<p>根据你的需求勾选安装的组件：</p>
+<ul>
+<li><strong>Kleopatra</strong>：图形界面加密软件。后续教程将围绕该软件展开，<strong>应当安装</strong>。</li>
+<li><strong>GpgEX</strong>：在系统的文件管理器右键菜单添加加解密等功能的快捷入口，<strong>推荐安装</strong>。</li>
+<li><strong>GpgOL</strong>：电子邮件客户端 Outlook 的插件，用于为 Outlook 添加 OpenPGP 支持。</li>
+<li><strong>Okular</strong>：PDF 文档阅读器。支持使用 GPG 签名 PDF 文档，或检查 PDF 文档在进行签名后是否被更改。</li>
+</ul>
+</li>
+<li>
+<p>点击“下一步”，按照界面提示完成后续步骤，直至完成软件安装。</p>
+</li>
+</ol>
+<h2 id="其他平台-linux-bsd-等"><a class="header" href="#其他平台-linux-bsd-等">其他平台 (Linux, BSD 等)</a></h2>
+<p>请优先使用发行版所提供的包管理器进行安装。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="创建密钥对"><a class="header" href="#创建密钥对">创建密钥对</a></h1>
+<ol>
+<li>
+<p>打开 Kleopatra。</p>
+</li>
+<li>
+<p>点击“文件”菜单，然后点击“创建 OpenPGP 密钥对”。</p>
+<p><img src="kleopatra/creating-key-pair/creating-oepnpgp-key-pair-menu-item.png" alt="创建 OpenPGP 密钥对菜单项" /></p>
+</li>
+<li>
+<p>输入关联密钥对的称谓（对应界面中的“名字”）和电子邮件地址。所输入的称谓和电子邮件地址应能够使收到公钥的人辨认出这个公钥的身份。</p>
+<blockquote>
+<p>如果该密钥对需要用于支持 OpenPGP 的在线服务，如电子邮件、在线 Git 托管服务（如 GitHub）、公钥服务器等，则必须填写能够联系到你的电子邮件地址。</p>
+<p>特殊的情况是如果 GitHub 账户启用了“Keep my email addresses private”（不公开我的电子邮件地址），则 Git 提交和 GPG 公钥需要使用 GitHub 提供的带有 <code>no-reply</code> 的电子邮件地址。详见 <a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key#generating-a-gpg-key" title="点击前往外部站点">这篇 GitHub 帮助文档第 8 条的 Note</a>。</p>
+</blockquote>
+<p><img src="kleopatra/creating-key-pair/name-email.png" alt="称谓和电子邮件地址" /></p>
+</li>
+<li>
+<p>勾选“使用密码句保护生成的密钥”。</p>
+</li>
+<li>
+<p>点击“OK”按钮开始创建密钥对。</p>
+</li>
+<li>
+<p>为新创建的密钥对设置私钥密码。在“Passphrase”和“Repeat”输入框中输入密码，然后点击“OK”按钮。</p>
+<blockquote>
+<p><strong>重要说明：</strong><br />
+此处是为私钥设置 <strong>私钥密码</strong>。在存储私钥前，Kleopatra 会使用该密码将私钥加密；在私钥使用前（如解密消息等），Kleopatra 会要求用户输入该密码来临时解密私钥。这样做的目的是提高安全性，即使私钥意外泄露，也会因为缺少私钥密码而无法使用。<br />
+因此私钥密码和私钥都很重要，只能自己持有，不能公开；且密码应有一定的复杂度，不应该和其他密码相同。</p>
+</blockquote>
+<p><img src="kleopatra/creating-key-pair/passphrase.png" alt="设置私钥密码" /></p>
+</li>
+<li>
+<p>完成密钥对的创建。</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="导出公钥"><a class="header" href="#导出公钥">导出公钥</a></h1>
+<p>公钥推荐导出为 <a href="kleopatra/exporting-public-key-text.html">文本格式</a>（用于交流和发布），也可以导出为 <a href="kleopatra/exporting-public-key-file.html">文件格式</a>（用于存储和归档）。</p>
+<p>导出方式推荐都学习。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="导出公钥文本"><a class="header" href="#导出公钥文本">导出公钥文本</a></h1>
+<p>本节介绍 <a href="kleopatra/exporting-public-key-text.html#exporting-public-key">导出公钥</a> 和 <a href="kleopatra/exporting-public-key-text.html#sharing-public-key">分享公钥</a> 的方法。</p>
+<h2 id="exporting-public-key"><a class="header" href="#exporting-public-key">导出公钥</a></h2>
+<ol>
+<li>
+<p>进入 Kleopatra 证书管理界面，<strong>双击</strong> 需要导出的公钥。</p>
+<p><img src="kleopatra/exporting-public-key/certificates.png" alt="证书列表" /></p>
+</li>
+<li>
+<p>进入证书细节界面，通过截图等方式记录指纹，用于后续的验证。</p>
+<p><img src="kleopatra/exporting-public-key/certificate-detail.png" alt="证书细节" /></p>
+</li>
+<li>
+<p>点击“导出”按钮，公钥会显示在文本框中。</p>
+<p><img src="kleopatra/exporting-public-key/public-key-text.png" alt="公钥文本" /></p>
+</li>
+</ol>
+<h2 id="sharing-public-key"><a class="header" href="#sharing-public-key">分享公钥</a></h2>
+<ol>
+<li>
+<p>将公钥复制到 <a href="kleopatra/../pastebin.html">文本分享网站</a> 上为其生成分享链接，然后将链接发送给对方。</p>
+</li>
+<li>
+<p>等待对方导入公钥时通过另一平台发来指纹，并检查其与 <a href="kleopatra/exporting-public-key-text.html#exporting-public-key">导出公钥</a> 第 2 步的指纹是否一致。</p>
+<ul>
+<li>如果一致，说明公钥发送成功，告知对方校验结果。</li>
+<li>如果不一致，表明对方收到的公钥可能被篡改，应排查操作问题并重新发送公钥。若未发现问题，说明当前通信平台可能试图进行中间人攻击（MITM），应中止流程并停止使用该平台。</li>
+</ul>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="导出公钥文件"><a class="header" href="#导出公钥文件">导出公钥文件</a></h1>
+<p>本节介绍 <a href="kleopatra/exporting-public-key-file.html#exporting-public-key">导出公钥</a> 和 <a href="kleopatra/exporting-public-key-file.html#sharing-public-key">分享公钥</a> 的方法。</p>
+<h2 id="exporting-public-key"><a class="header" href="#exporting-public-key">导出公钥</a></h2>
+<ol>
+<li>
+<p>进入 Kleopatra 证书管理界面，<strong>点击</strong> 需要导出的公钥，然后点击工具栏上的“导出”按钮。</p>
+<p><img src="kleopatra/exporting-public-key/exporting-public-key-button.png" alt="导出公钥按钮" /></p>
+</li>
+<li>
+<p>选择存储公钥的位置，导出后缀名为 <code>.asc</code> 的公钥文件。</p>
+</li>
+</ol>
+<h2 id="sharing-public-key"><a class="header" href="#sharing-public-key">分享公钥</a></h2>
+<ol>
+<li>
+<p>将公钥文件发送给对方。</p>
+</li>
+<li>
+<p>回到 Kleopatra 证书管理界面，<strong>双击</strong> 需要导出的公钥。</p>
+</li>
+<li>
+<p>进入证书细节界面，通过截图等方式记录指纹，用于后续的验证。</p>
+<p><img src="kleopatra/exporting-public-key/certificate-detail.png" alt="证书细节" /></p>
+</li>
+<li>
+<p>等待对方导入公钥时通过另一平台发来指纹，然后校验发来的指纹与 <a href="kleopatra/exporting-public-key-file.html#exporting-public-key">导出公钥</a> 第 2 步的指纹是否一致。</p>
+<ul>
+<li>如果一致，说明公钥发送成功，告知对方校验结果。</li>
+<li>如果不一致，表明对方收到的公钥可能被篡改，应排查操作问题并重新发送公钥。若未发现问题，说明当前通信平台可能试图进行中间人攻击（MITM），应中止流程并停止使用该平台。</li>
+</ul>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="导入公钥"><a class="header" href="#导入公钥">导入公钥</a></h1>
+<p>本章节中将介绍 <a href="kleopatra/importing-public-key-text.html">公钥文本</a> 和 <a href="kleopatra/importing-public-key-file.html">公钥文件</a> 的导入方法。</p>
+<p>导入方式推荐都学习。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="导入公钥文本"><a class="header" href="#导入公钥文本">导入公钥文本</a></h1>
+<ol>
+<li>
+<p>收到以 <code>-----BEGIN PGP PUBLIC KEY BLOCK-----</code> 开头的公钥文本，以及该公钥的指纹截图。</p>
+</li>
+<li>
+<p>进入 Kleopatra 记事本界面，并切换到“记事本”选项卡。</p>
+<p><img src="kleopatra/shared/notepad.png" alt="记事本" /></p>
+</li>
+<li>
+<p>将公钥文本复制到“记事本”选项卡下方的文本框中，然后点击“导入记事本”按钮。</p>
+<p><img src="kleopatra/importing-public-key/pasting-and-importing.png" alt="粘贴公钥和导入记事本" /></p>
+</li>
+<li>
+<p>点击“认证”按钮。</p>
+<p><img src="kleopatra/importing-public-key/starting-certifying.png" alt="开始认证公钥" /></p>
+</li>
+<li>
+<p>在认证证书界面上，将显示的指纹 <strong>通过另一平台</strong> 发送给对方，并等待对方校验发送的指纹与预期公钥的指纹是否一致。</p>
+<ul>
+<li>如果一致，进行下一步。</li>
+<li>如果不一致，表明收到的公钥可能被篡改，应排查操作问题并要求对方重新发送公钥。若未发现问题，说明当前通信平台可能试图进行中间人攻击（MITM），应中止流程并停止使用该平台。</li>
+</ul>
+<blockquote>
+<p>发送指纹时，可以选择线下交流、<a href="kleopatra/../communication-platform.html">一次性匿名聊天室</a>、电子邮件或网站公示作为另一平台。若充分信任当前通信平台，也可通过同一平台发送 <a href="kleopatra/../pastebin.html">文本分享网站</a> 的链接。</p>
+</blockquote>
+<p><img src="kleopatra/importing-public-key/checking-fingerprint.png" alt="检查指纹" /></p>
+</li>
+<li>
+<p>“认证方式”下拉框选择自己的私钥，然后点击“认证”按钮。</p>
+<p><img src="kleopatra/importing-public-key/certifying.png" alt="认证公钥" /></p>
+</li>
+<li>
+<p>如果创建密钥对时设置了“使用密码句保护生成的密钥”，则此时需要在“Passphrase”输入框中输入先前设置的私钥密码，然后点击“OK”按钮。</p>
+<p><img src="kleopatra/shared/entering-private-key-passphrase.png" alt="输入私钥密码" /></p>
+</li>
+<li>
+<p>完成公钥的导入与认证。</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="导入公钥文件"><a class="header" href="#导入公钥文件">导入公钥文件</a></h1>
+<ol>
+<li>
+<p>收到文件后缀名为 <code>.asc</code> 的公钥文件，以及该公钥的指纹截图。</p>
+</li>
+<li>
+<p>在文件管理器双击打开公钥文件。</p>
+<p>或者在 Kleopatra 中点击工具栏上的“导入”按钮，然后在“选择证书文件”对话框中选择公钥文件。</p>
+<p><img src="kleopatra/importing-public-key/importing-public-key-file-button.png" alt="导入公钥按钮" /></p>
+</li>
+<li>
+<p>点击“认证”按钮。</p>
+<p><img src="kleopatra/importing-public-key/starting-certifying.png" alt="开始认证公钥" /></p>
+</li>
+<li>
+<p>在认证证书界面上，将显示的指纹 <strong>通过另一平台</strong> 发送给对方，并等待对方校验发送的指纹与预期公钥的指纹是否一致。</p>
+<ul>
+<li>如果一致，进行下一步。</li>
+<li>如果不一致，表明收到的公钥可能被篡改，应排查操作问题并要求对方重新发送公钥。若未发现问题，说明当前通信平台可能试图进行中间人攻击（MITM），应中止流程并停止使用该平台。</li>
+</ul>
+<blockquote>
+<p>发送指纹时，可以选择线下交流、<a href="kleopatra/../communication-platform.html">一次性匿名聊天室</a>、电子邮件或网站公示作为另一平台。若充分信任当前通信平台，也可通过同一平台发送 <a href="kleopatra/../pastebin.html">文本分享网站</a> 的链接。</p>
+</blockquote>
+<p><img src="kleopatra/importing-public-key/checking-fingerprint.png" alt="检查指纹" /></p>
+</li>
+<li>
+<p>“认证方式”下拉框选择自己的私钥，然后点击“认证”按钮。</p>
+<p><img src="kleopatra/importing-public-key/certifying.png" alt="认证公钥" /></p>
+</li>
+<li>
+<p>如果创建密钥对时设置了“使用密码句保护生成的密钥”，则此时需要在“Passphrase”输入框中输入先前设置的私钥密码，然后点击“OK”按钮。</p>
+<p><img src="kleopatra/shared/entering-private-key-passphrase.png" alt="输入私钥密码" /></p>
+</li>
+<li>
+<p>完成公钥的导入与认证。</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="加密消息"><a class="header" href="#加密消息">加密消息</a></h1>
+<p>本章节中将介绍 <a href="kleopatra/encrypting-message-text.html">文本</a> 或 <a href="kleopatra/encrypting-message-file.html">文件</a> 的加密方法。</p>
+<p>加密方法推荐都学习。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="加密消息文本并发送"><a class="header" href="#加密消息文本并发送">加密消息文本并发送</a></h1>
+<ol>
+<li>
+<p>完成对方公钥的导入。</p>
+</li>
+<li>
+<p>进入 Kleopatra 记事本界面，并切换到“记事本”选项卡。</p>
+<p><img src="kleopatra/shared/notepad.png" alt="记事本" /></p>
+</li>
+<li>
+<p>在选项卡下方的文本框中输入要发送给对方的文本。</p>
+</li>
+<li>
+<p>切换到“收件人”选项卡。</p>
+<p><img src="kleopatra/encrypting-message/text-recipients.png" alt="收件人" /></p>
+</li>
+<li>
+<p>“签名身份”下拉框选择自己的私钥。选择的私钥用于将发件人的身份告知对方。</p>
+</li>
+<li>
+<p>点击"为他人加密"输入框右侧的 <img src="kleopatra/encrypting-message/selecting-certificates-button.png" alt="选择证书按钮" /> 按钮选择对方的公钥（收件人），支持多选。选择的公钥用于加密消息，以及决定谁能解密。可以通过清空输入框内容来取消选择收件人。</p>
+</li>
+<li>
+<p>点击“签名/加密记事本内容”按钮。</p>
+</li>
+<li>
+<p>如果创建密钥对时设置了“使用密码句保护生成的密钥”，则此时需要在“Passphrase”输入框中输入先前设置的私钥密码，然后点击“OK”按钮。</p>
+<p><img src="kleopatra/shared/entering-private-key-passphrase.png" alt="输入私钥密码" /></p>
+</li>
+<li>
+<p>加密完成得到密文文本。密文文本会取代原来的消息文本出现在“记事本”选项卡下的输入框中。</p>
+<p><img src="kleopatra/encrypting-message/cipertext.png" alt="密文" /></p>
+</li>
+<li>
+<p>复制密文文本粘贴到 <a href="kleopatra/../pastebin.html">文本分享网站</a> 上为其创建分享链接，然后把链接发送给对方。</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="加密消息文件并发送"><a class="header" href="#加密消息文件并发送">加密消息文件并发送</a></h1>
+<ol>
+<li>
+<p>完成对方公钥的导入。</p>
+</li>
+<li>
+<p>在文件管理器中右击要加密的文件，然后点击“Sign and encrypt”。</p>
+<p>或者在 Kleopatra 中，点击工具栏上的“签名/加密”按钮，然后在“选择一个或多个要签名/加密的文件”对话框中选择要加密的文件。</p>
+<p><img src="kleopatra/encrypting-message/signing-and-ecrypting-button.png" alt="签名/加密按钮" /></p>
+</li>
+<li>
+<p>在“签名/加密文件”对话框中，“签名身份”下拉框选择自己的私钥。选择的私钥用于将发件人的身份告知对方。</p>
+<p><img src="kleopatra/encrypting-message/file-recipients.png" alt="签名/加密文件对话框" /></p>
+</li>
+<li>
+<p>点击"为他人加密"输入框右侧的 <img src="kleopatra/encrypting-message/selecting-certificates-button.png" alt="选择证书按钮" /> 按钮选择对方的公钥（收件人），支持多选。选择的公钥用于加密消息，以及决定谁能解密。可以通过清空输入框内容来取消选择收件人。</p>
+</li>
+<li>
+<p>“输出文件或文件夹”文本框中设置密文文件的保存位置以及文件名。</p>
+</li>
+<li>
+<p>点击“签名/加密”按钮。</p>
+</li>
+<li>
+<p>如果创建密钥对时设置了“使用密码句保护生成的密钥”，则此时需要在“Passphrase”输入框中输入先前设置的私钥密码，然后点击“OK”按钮。</p>
+<p><img src="kleopatra/shared/entering-private-key-passphrase.png" alt="输入私钥密码" /></p>
+</li>
+<li>
+<p>加密完成得到密文文件。</p>
+</li>
+<li>
+<p>将密文文件发送给对方。</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="解密消息"><a class="header" href="#解密消息">解密消息</a></h1>
+<p>本章节中将介绍 <a href="kleopatra/decrypting-message-text.html">密文文本</a> 或 <a href="kleopatra/decrypting-message-file.html">密文文件</a> 的解密方法。</p>
+<p>解密方法推荐都学习。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="解密消息文本"><a class="header" href="#解密消息文本">解密消息文本</a></h1>
+<ol>
+<li>
+<p>收到以 <code>-----BEGIN PGP MESSAGE-----</code> 开头的密文文本。</p>
+</li>
+<li>
+<p>进入 Kleopatra 记事本界面，并切换到“记事本”选项卡。</p>
+<p><img src="kleopatra/shared/notepad.png" alt="记事本" /></p>
+</li>
+<li>
+<p>将密文文本粘贴到“记事本”选项卡下方的文本框中，然后点击“解密/验证记事本内容”按钮。</p>
+<p><img src="kleopatra/decrypting-message/decrypting-text.png" alt="解密密文文本" /></p>
+</li>
+<li>
+<p>如果创建密钥对时设置了“使用密码句保护生成的密钥”，则此时需要在“Passphrase”输入框中输入先前设置的私钥密码，然后点击“OK”按钮。</p>
+<p><img src="kleopatra/shared/entering-private-key-passphrase.png" alt="输入私钥密码" /></p>
+</li>
+<li>
+<p>解密完成得到原始文本，原始文本会取代先前的密文文本出现在“记事本”选项卡下的输入框中。</p>
+<p><img src="kleopatra/decrypting-message/decrypted-text.png" alt="文本解密结果" /></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="解密消息文件"><a class="header" href="#解密消息文件">解密消息文件</a></h1>
+<ol>
+<li>
+<p>收到文件后缀名为 <code>.gpg</code> 或 <code>.pgp</code> 的密文文件。</p>
+</li>
+<li>
+<p>在文件管理器双击密文文件。</p>
+<p>若双击后未出现 Kleopatra 的界面，则右击密文文件，然后点击“Decrypt and verify”（如果找不到该菜单，请尝试在“More GpgEX Options”菜单里找）。</p>
+<p>或在 Kleopatra 中点击工具栏的“解密/校验”按钮，然后在弹出的对话框中选择密文文件。</p>
+<p><img src="kleopatra/decrypting-message/decrypting-button.png" alt="解密/校验按钮" /></p>
+</li>
+<li>
+<p>如果创建密钥对时设置了“使用密码句保护生成的密钥”，则此时需要在“Passphrase”输入框中输入先前设置的私钥密码，然后点击“OK”按钮。</p>
+<p><img src="kleopatra/shared/entering-private-key-passphrase.png" alt="输入私钥密码" /></p>
+</li>
+<li>
+<p>解密完成得到原始文件。</p>
+<p>点击“输出文件夹”输入框右侧的 <img src="kleopatra/decrypting-message/setting-output-path-button.png" alt="设置输出路径按钮" /> 按钮打开“选择文件夹”对话框，选择原始文件的保存位置。</p>
+<p>随后再点击“Save All”按钮。</p>
+<p><img src="kleopatra/decrypting-message/decrypted-file.png" alt="解密的文件" /></p>
+</li>
+<li>
+<p>如果软件询问是否以原始文件名保存，按提示自行决定。</p>
+<p><img src="kleopatra/decrypting-message/saving-with-original-file-name.png" alt="是否原始文件名保存" /></p>
+</li>
+<li>
+<p>原始文件将保存在指定的位置。</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><div class="warning">
+<p><strong>警告：</strong></p>
+<p><strong>OpenKeychain 已经过时且停止维护，不建议再使用。推荐改用 PC 上的 Kleopatra。</strong></p>
+<p>OpenKeychain 在尝试解密较新版本 GPG 的密文时会出现报错而无法解密的问题。若要继续使用 OpenKeychain，则双方必须都使用该应用来创建密钥对和加解密消息。</p>
+</div>
+<h1 id="openkeychain"><a class="header" href="#openkeychain">OpenKeychain</a></h1>
+<p>在本章中，你将学习 OpenKeychain 的下载与安装，以及使用以下的功能：</p>
+<ul>
+<li>创建 OpenPGP 密钥对。</li>
+<li>导出自己的公钥，以及公钥的指纹。</li>
+<li>导入别人的公钥，并用自己的私钥对其认证</li>
+<li>加密文本或文件。</li>
+<li>解密文本或文件。</li>
+</ul>
+<p>在完成加密软件的学习后，推荐你继续学习以下章节：</p>
+<ul>
+<li><a href="security-and-secret.html">简单的安全与保密意识</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="准备软件-1"><a class="header" href="#准备软件-1">准备软件</a></h1>
+<ol>
+<li>
+<p>浏览器打开 <a href="https://f-droid.org/packages/org.sufficientlysecure.keychain/" title="点击前往外部站点">应用的 F-Droid 下载页面</a>。</p>
+</li>
+<li>
+<p>点击最新版本对应的“下载 APK”链接。</p>
+<p><img src="openkeychain/preparing-software/downloading-link.png" alt="下载 APK" /></p>
+</li>
+<li>
+<p>安装 APK。如果安装失败，可以尝试以下解决方法：</p>
+<ul>
+<li>设置允许（应用）安装未知来源软件。</li>
+<li>退出操作系统的账号登录。</li>
+<li>关闭相关的安全选项。</li>
+</ul>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="创建密钥对-1"><a class="header" href="#创建密钥对-1">创建密钥对</a></h1>
+<blockquote>
+<p><strong>注意：</strong><br />
+如果你是第一次打开应用，请从 <strong>第 2 步</strong> 开始看。</p>
+</blockquote>
+<ol>
+<li>
+<p>在 OpenKeychain 密钥管理界面，点击右上角的三点按钮，然后点击“管理我的密钥”。</p>
+<p><img src="openkeychain/creating-key-pair/home-page-popup.png" alt="密钥管理界面菜单" /></p>
+</li>
+<li>
+<p>点击“创建密钥”。</p>
+<p><img src="openkeychain/creating-key-pair/managing-my-keys.png" alt="管理我的密钥" /></p>
+</li>
+<li>
+<p>输入关联密钥对的称谓，然后点击“下一步”。所输入的称谓应能够使收到公钥的人辨认出这个公钥的身份。</p>
+<p><img src="openkeychain/creating-key-pair/name.png" alt="称谓" /></p>
+</li>
+<li>
+<p>输入关联密钥对的电子邮件地址，然后点击“下一步”。所输入的电子邮件地址应能够使收到公钥的人辨认出这个公钥的身份。</p>
+<blockquote>
+<p>如果该密钥对需要用于支持 OpenPGP 的在线服务，如电子邮件、在线 Git 托管服务（如 GitHub）、公钥服务器等，则必须填写能够联系到你的电子邮件地址。</p>
+<p>特殊的情况是 GitHub 如果启用了“Keep my email addresses private”（不公开我的电子邮件地址），则 Git 提交和 GPG 公钥需要使用 GitHub 提供的带有 <code>no-reply</code> 的电子邮件地址才能让该设置生效。详见 <a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key#generating-a-gpg-key">这篇 GitHub 帮助文档第 8 条的 Note</a>。</p>
+</blockquote>
+<p><img src="openkeychain/creating-key-pair/email.png" alt="电子邮件地址" /></p>
+</li>
+<li>
+<p>点击右上角的三点按钮，然后点击“更改密钥配置”。</p>
+<p><img src="openkeychain/creating-key-pair/changing-key-options.png" alt="更改密钥配置" /></p>
+</li>
+<li>
+<p>点击“变更密码”。</p>
+</li>
+<li>
+<p>为新创建的密钥对设置私钥密码。在“密码”和“重复密码”输入框中输入密码，然后点击“OK”按钮。</p>
+<blockquote>
+<p><strong>重要说明：</strong><br />
+此处是为私钥设置 <strong>私钥密码</strong>。在存储私钥前，OpenKeychain 会使用该密码将私钥加密；在私钥使用前（如解密消息等），OpenKeychain 会要求用户输入该密码来临时解密私钥。这样做的目的是提高安全性，即使私钥意外泄露，也会因为缺少私钥密码而无法使用。<br />
+因此私钥密码和私钥都很重要，只能自己持有，不能公开；且密码应有一定的复杂度，不应该和其他密码相同。</p>
+</blockquote>
+<p><img src="openkeychain/creating-key-pair/changing-key-password.png" alt="设置私钥密码" /></p>
+</li>
+<li>
+<p>点击右上角的“保存”。</p>
+<p><img src="openkeychain/creating-key-pair/saving-key-settings.png" alt="保存密钥设置" /></p>
+</li>
+<li>
+<p>点击右下角的“创建密钥”。</p>
+<p><img src="openkeychain/creating-key-pair/creating-key-button.png" alt="创建密钥" /></p>
+</li>
+<li>
+<p>完成密钥对的创建。</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="导出公钥-1"><a class="header" href="#导出公钥-1">导出公钥</a></h1>
+<p>公钥推荐导出为 <a href="openkeychain/exporting-public-key-text.html">文本格式</a>（用于交流和发布），也可以导出为 <a href="openkeychain/exporting-public-key-file.html">文件格式</a>（用于存储和归档）。</p>
+<p>导出方式推荐都学习。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="导出公钥文本-1"><a class="header" href="#导出公钥文本-1">导出公钥文本</a></h1>
+<p>本节介绍 <a href="openkeychain/exporting-public-key-text.html#exporting-public-key">导出公钥</a> 和 <a href="openkeychain/exporting-public-key-text.html#sharing-public-key">分享公钥</a> 的方法。</p>
+<h2 id="exporting-public-key"><a class="header" href="#exporting-public-key">导出公钥</a></h2>
+<ol>
+<li>
+<p>进入 OpenKeychain 密钥管理界面，点击需要导出的公钥。</p>
+<p><img src="openkeychain/exporting-public-key/certificates.png" alt="密钥列表" /></p>
+</li>
+<li>
+<p>进入密钥概览界面。点击右上角的三点按钮，然后点击“更多密钥详情”。</p>
+<p><img src="openkeychain/exporting-public-key/key-detail-button.png" alt="更多密钥详情" /></p>
+</li>
+<li>
+<p>进入密钥详情界面。切换到“分享”选项卡。</p>
+<p><img src="openkeychain/exporting-public-key/key-detail.png" alt="密钥详情界面" /></p>
+</li>
+<li>
+<p>通过截图等方式记录界面上的指纹，用于后续的验证。</p>
+</li>
+<li>
+<p>点击下方“分享到...”右边的 <strong>第二个图标</strong>，复制公钥文本到剪贴板。</p>
+</li>
+</ol>
+<h2 id="sharing-public-key"><a class="header" href="#sharing-public-key">分享公钥</a></h2>
+<ol>
+<li>
+<p>将剪贴板中的公钥文本粘贴到 <a href="openkeychain/../pastebin.html">文本分享网站</a> 上为其生成分享链接，然后将链接发送给对方。</p>
+</li>
+<li>
+<p>等待对方导入公钥时通过另一平台发来指纹，并检查其与 <a href="openkeychain/exporting-public-key-text.html#exporting-public-key">导出公钥</a> 第 4 步的指纹是否一致。</p>
+<ul>
+<li>如果一致，说明公钥发送成功，告知对方校验结果。</li>
+<li>如果不一致，表明对方收到的公钥可能被篡改，应排查操作问题并重新发送公钥。若未发现问题，说明当前通信平台可能试图进行中间人攻击（MITM），应中止流程并停止使用该平台。</li>
+</ul>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="导出并分享公钥文件"><a class="header" href="#导出并分享公钥文件">导出并分享公钥文件</a></h1>
+<p>本节介绍 <a href="openkeychain/exporting-public-key-file.html#exporting-public-key">导出公钥</a> 和 <a href="openkeychain/exporting-public-key-file.html#sharing-public-key">分享公钥</a> 的方法。</p>
+<h2 id="exporting-public-key"><a class="header" href="#exporting-public-key">导出公钥</a></h2>
+<ol>
+<li>
+<p>进入 OpenKeychain 密钥管理界面，点击需要导出的公钥。</p>
+<p><img src="openkeychain/exporting-public-key/certificates.png" alt="密钥列表" /></p>
+</li>
+<li>
+<p>进入密钥概览界面。点击右上角的三点按钮，然后点击“更多密钥详情”。</p>
+<p><img src="openkeychain/exporting-public-key/key-detail-button.png" alt="更多密钥详情" /></p>
+</li>
+<li>
+<p>进入密钥详情界面。切换到“分享”选项卡。</p>
+<p><img src="openkeychain/exporting-public-key/key-detail.png" alt="密钥详情界面" /></p>
+</li>
+<li>
+<p>记下界面上的指纹，在后续验证步骤使用。</p>
+</li>
+<li>
+<p>点击下方“分享到...”右边的 <strong>第一个图标</strong>，选择导出方式。</p>
+</li>
+</ol>
+<h2 id="sharing-public-key"><a class="header" href="#sharing-public-key">分享公钥</a></h2>
+<ol>
+<li>
+<p>将公钥文件发送给对方。</p>
+</li>
+<li>
+<p>等待对方导入公钥时通过另一平台发来指纹，并检查其与 <a href="openkeychain/exporting-public-key-file.html#exporting-public-key">导出公钥</a> 第 4 步的指纹是否一致。</p>
+<ul>
+<li>如果一致，说明公钥发送成功，告知对方校验结果。</li>
+<li>如果不一致，表明对方收到的公钥可能被篡改，应排查操作问题并重新发送公钥。若未发现问题，说明当前通信平台可能试图进行中间人攻击（MITM），应中止流程并停止使用该平台。</li>
+</ul>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="导入公钥-1"><a class="header" href="#导入公钥-1">导入公钥</a></h1>
+<p>本章节中将介绍 <a href="openkeychain/importing-public-key-text.html">公钥文本</a> 和 <a href="openkeychain/importing-public-key-file.html">公钥文件</a> 的导入方法。</p>
+<p>导入方式推荐都学习。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="导入公钥文本-1"><a class="header" href="#导入公钥文本-1">导入公钥文本</a></h1>
+<ol>
+<li>
+<p>收到以 <code>-----BEGIN PGP PUBLIC KEY BLOCK-----</code> 开头的公钥文本，以及该公钥的指纹截图。</p>
+</li>
+<li>
+<p>选择以下一种方法让 OpenKeychain 读取公钥文本。</p>
+<blockquote>
+<p><strong>方法 1：分享公钥文本到 OpenKeychain</strong></p>
+<p>部分应用（如 Via浏览器）支持分享文本到其他应用。利用此特性，分享公钥文件到 OpenKeychain 让其读取。</p>
+<p>参考步骤：</p>
+<ol>
+<li>
+<p>选中全部公钥文本。</p>
+</li>
+<li>
+<p>点击文本周围出现的工具栏上的分享按钮。</p>
+</li>
+<li>
+<p>点击“OpenKeychain：导入密钥”和“<strong>仅此一次</strong>”（如果有该项）。</p>
+<p><img src="openkeychain/importing-public-key/using-openkeychain-to-handle-public-key.png" alt="使用 OpenKeychain 处理公钥" /></p>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>方法 2：自动从剪贴板读取公钥文本</strong></p>
+<ol>
+<li>
+<p>复制公钥文本，然后打开 OpenKeychain 进入密钥管理界面。</p>
+</li>
+<li>
+<p>界面下方出现“在剪贴板中发现密钥数据！”的提示，点击右侧的“查看”按钮。</p>
+<p><img src="openkeychain/importing-public-key/checking-public-key-from-clipboard.png" alt="自动检测剪贴板的公钥文本" /></p>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>方法 3：手动指定从剪贴板读取公钥文本</strong></p>
+<ol>
+<li>
+<p>复制公钥文本，然后打开 OpenKeychain 进入密钥管理界面。</p>
+</li>
+<li>
+<p>点击界面右下角的圆形“+”图标，然后点击“从文件导入”。</p>
+<p><img src="openkeychain/importing-public-key/importing-public-key-from-file.png" alt="从文件导入" /></p>
+</li>
+<li>
+<p>进入导入密钥界面。点击右上角的三点图标，然后点击“从剪贴板读取”。</p>
+<p><img src="openkeychain/importing-public-key/reading-from-clipborad.png" alt="从剪贴板读取" /></p>
+</li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>点击“导入”按钮。</p>
+<p><img src="openkeychain/importing-public-key/info-of-imported-public-key.png" alt="导入的公钥的信息" /></p>
+</li>
+<li>
+<p>回到密钥管理界面，点击刚导入的公钥。</p>
+<p><img src="openkeychain/importing-public-key/clicking-imported-public-key.png" alt="点击导入的公钥" /></p>
+</li>
+<li>
+<p>进入密钥概览界面。点击右上角的三点按钮，然后点击“通过指纹确认”。</p>
+<p><img src="openkeychain/importing-public-key/clicking-confirm-through-fingerprint-button.png" alt="点击通过指纹确认" /></p>
+</li>
+<li>
+<p>将界面上显示的指纹 <strong>通过另一平台</strong> 发送给对方，并等待对方校验发送的指纹与预期公钥的指纹是否一致。</p>
+<ul>
+<li>如果一致，则点击“密钥指纹符合”。</li>
+<li>如果不一致，表明收到的公钥可能被篡改，应排查操作问题并要求对方重新发送公钥。若未发现问题，说明当前通信平台可能试图进行中间人攻击（MITM），应中止流程并停止使用该平台。</li>
+</ul>
+<blockquote>
+<p>发送指纹时，可以选择线下交流、<a href="openkeychain/../communication-platform.html">一次性匿名聊天室</a>、电子邮件或网站公示作为另一平台。若充分信任当前通信平台，也可通过同一平台发送 <a href="openkeychain/../pastebin.html">文本分享网站</a> 的链接。</p>
+</blockquote>
+<p><img src="openkeychain/importing-public-key/checking-fingerprint.png" alt="确认指纹" /></p>
+</li>
+<li>
+<p>“我的密钥”下拉框选择自己的私钥，然后点击“确认密钥”按钮。</p>
+<p><img src="openkeychain/importing-public-key/certifying.png" alt="认证公钥" /></p>
+</li>
+<li>
+<p>如果创建密钥对时设置了私钥密码，则此时需要在“密码”输入框中输入先前设置的密码，然后点击“解锁”按钮。</p>
+<p><img src="openkeychain/shared/entering-private-key-passphrase.png" alt="输入私钥密码" /></p>
+</li>
+<li>
+<p>完成公钥的导入与认证。</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="导入公钥文件-1"><a class="header" href="#导入公钥文件-1">导入公钥文件</a></h1>
+<ol>
+<li>
+<p>收到文件后缀名为 <code>.asc</code> 的公钥文件，以及该公钥的指纹截图。</p>
+</li>
+<li>
+<p>选择以下一种方法让 OpenKeychain 读取公钥文件。</p>
+<blockquote>
+<p><strong>方法 1：直接打开公钥文件</strong></p>
+<p>文件管理器点击公钥文件，然后点击“OpenKeychain：导入密钥”和“<strong>仅此一次</strong>”（如果有该项）。</p>
+<p><img src="openkeychain/importing-public-key/using-openkeychain-to-handle-public-key.png" alt="使用 OpenKeychain 处理公钥" /></p>
+</blockquote>
+<blockquote>
+<p><strong>方式 2：手动指定并读取公钥文件</strong></p>
+<ol>
+<li>
+<p>打开 OpenKeychain 进入密钥管理界面。</p>
+</li>
+<li>
+<p>点击界面右下角的圆形“+”图标，然后点击“从文件导入”。</p>
+<p><img src="openkeychain/importing-public-key/importing-public-key-from-file.png" alt="从文件导入" /></p>
+</li>
+<li>
+<p>点击浏览公钥文件按钮，然后选择要导入的公钥文件。</p>
+<p><img src="openkeychain/importing-public-key/choosing-public-key-file.png" alt="浏览公钥文件按钮" /></p>
+</li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>点击“导入”按钮。</p>
+<p><img src="openkeychain/importing-public-key/info-of-imported-public-key.png" alt="导入的公钥的信息" /></p>
+</li>
+<li>
+<p>回到密钥管理界面，点击刚导入的公钥。</p>
+<p><img src="openkeychain/importing-public-key/clicking-imported-public-key.png" alt="点击导入的公钥" /></p>
+</li>
+<li>
+<p>进入密钥概览界面。点击右上角的三点按钮，然后点击“通过指纹确认”。</p>
+<p><img src="openkeychain/importing-public-key/clicking-confirm-through-fingerprint-button.png" alt="点击通过指纹确认" /></p>
+</li>
+<li>
+<p>将界面上显示的指纹 <strong>通过另一平台</strong> 发送给对方，并等待对方校验发送的指纹与预期公钥的指纹是否一致。</p>
+<ul>
+<li>如果一致，则点击“密钥指纹符合”。</li>
+<li>如果不一致，表明收到的公钥可能被篡改，应排查操作问题并要求对方重新发送公钥。若未发现问题，说明当前通信平台可能试图进行中间人攻击（MITM），应中止流程并停止使用该平台。</li>
+</ul>
+<blockquote>
+<p>发送指纹时，可以选择线下交流、<a href="openkeychain/../communication-platform.html">一次性匿名聊天室</a>、电子邮件或网站公示作为另一平台。若充分信任当前通信平台，也可通过同一平台发送 <a href="openkeychain/../pastebin.html">文本分享网站</a> 的链接。</p>
+</blockquote>
+<p><img src="openkeychain/importing-public-key/checking-fingerprint.png" alt="确认指纹" /></p>
+</li>
+<li>
+<p>“我的密钥”下拉框选择自己的私钥，然后点击“确认密钥”按钮。</p>
+<p><img src="openkeychain/importing-public-key/certifying.png" alt="认证公钥" /></p>
+</li>
+<li>
+<p>如果创建密钥对时设置了私钥密码，则此时需要在“密码”输入框中输入先前设置的密码，然后点击“解锁”按钮。</p>
+<p><img src="openkeychain/shared/entering-private-key-passphrase.png" alt="输入私钥密码" /></p>
+</li>
+<li>
+<p>完成公钥的导入与认证。</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="加密消息-1"><a class="header" href="#加密消息-1">加密消息</a></h1>
+<p>本章节中将介绍 <a href="openkeychain/encrypting-message-text.html">文本</a> 或 <a href="openkeychain/encrypting-message-file.html">文件</a> 的加密方法。</p>
+<p>加密方法推荐都学习。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="加密消息文本并发送-1"><a class="header" href="#加密消息文本并发送-1">加密消息文本并发送</a></h1>
+<ol>
+<li>
+<p>完成对方公钥的导入。</p>
+</li>
+<li>
+<p>选择以下一种方法进入 OpenKeychain 的文本加密界面。</p>
+<blockquote>
+<p><strong>方式 1：从密钥概览界面进入</strong></p>
+<ol>
+<li>
+<p>进入 OpenKeychain 密钥管理界面，点击作为收件人的密钥。</p>
+</li>
+<li>
+<p>点击加密文本按钮（红框 2 处）。</p>
+<p><img src="openkeychain/encrypting-message/encrypting-button-from-key-overview.png" alt="加密按钮" /></p>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>方式 2：从加密/解密界面进入</strong></p>
+<ol>
+<li>
+<p>打开 OpenKeychain，从屏幕左侧向右滑动拉出侧边菜单。</p>
+</li>
+<li>
+<p>点击“加密/解密”。</p>
+<p><img src="openkeychain/shared/encrypting-and-decrypting.png" alt="加密/解密”" /></p>
+</li>
+<li>
+<p>点击“加密文本”。</p>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>方式 3：分享要加密的文本到 OpenKeychain</strong></p>
+<p>部分应用（如 Via浏览器）支持分享文本到其他应用。利用此特性，分享要加密的消息到 OpenKeychain 让其读取。</p>
+<p>参考步骤：</p>
+<ol>
+<li>
+<p>选中全部要加密的消息。</p>
+</li>
+<li>
+<p>点击文本周围出现的工具栏上的分享按钮。</p>
+</li>
+<li>
+<p>点击“OpenKeychain：加密”和“<strong>仅此一次</strong>”（如果有该项）。</p>
+<p><img src="openkeychain/shared/using-openkeychain-to-handle-message.png" alt="使用 OpenKeychain 处理消息或密文" /></p>
+</li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>以下为加密文本界面的说明：</p>
+<p><img src="openkeychain/encrypting-message/encrypting-text.png" alt="加密文本界面" /></p>
+<ul>
+<li>红框 1 处输入公钥名称或邮箱地址来选择对方的公钥，支持多选。选择的公钥用于加密消息，以及决定谁能解密。</li>
+<li>红框 2 处选择自己的私钥。选择的私钥用于将发件人的身份告知对方。</li>
+<li>红框 3 处输入要发送给对方的文本。</li>
+<li>红框 4 处为加密文本并复制密文到剪贴板。</li>
+</ul>
+</li>
+<li>
+<p>进行加密操作时，如果创建密钥对时设置了私钥密码，则此时需要在“密码”输入框中输入先前设置的密码，然后点击“解锁”按钮。</p>
+<p><img src="openkeychain/shared/entering-private-key-passphrase.png" alt="输入私钥密码" /></p>
+</li>
+<li>
+<p>加密完成后密文文本会被复制到剪贴板。将密文文本粘贴到 <a href="openkeychain/../pastebin.html">文本分享网站</a> 上为其创建分享链接，然后把链接发送给对方。</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="加密消息文件并发送-1"><a class="header" href="#加密消息文件并发送-1">加密消息文件并发送</a></h1>
+<ol>
+<li>
+<p>完成对方公钥的导入。</p>
+</li>
+<li>
+<p>选择以下一种方法进入 OpenKeychain 的文本文件界面。</p>
+<blockquote>
+<p><strong>方式 1：从密钥概览界面进入</strong></p>
+<ol>
+<li>
+<p>进入 OpenKeychain 密钥管理界面，点击作为收件人的密钥。</p>
+</li>
+<li>
+<p>点击加密文件按钮（红框 1 处）。</p>
+<p><img src="openkeychain/encrypting-message/encrypting-button-from-key-overview.png" alt="加密按钮" /></p>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>方式 2：从加密/解密界面进入</strong></p>
+<ol>
+<li>
+<p>打开 OpenKeychain，从屏幕左侧向右滑动拉出侧边菜单。</p>
+</li>
+<li>
+<p>点击“加密/解密”。</p>
+<p><img src="openkeychain/shared/encrypting-and-decrypting.png" alt="加密/解密”" /></p>
+</li>
+<li>
+<p>点击“加密文件”。</p>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>方式 3：分享要加密的文件到 OpenKeychain</strong></p>
+<ol>
+<li>
+<p>文件管理器中长按要加密的文件。</p>
+</li>
+<li>
+<p>点击分享相关的按钮，然后点击“OpenKeychain：加密”和“<strong>仅此一次</strong>”（如果有该项）。</p>
+<p><img src="openkeychain/shared/using-openkeychain-to-handle-message.png" alt="使用 OpenKeychain 处理消息或密文" /></p>
+</li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>以下为加密文件界面的说明：</p>
+<p><img src="openkeychain/encrypting-message/encrypting-file.png" alt="加密文件界面" /></p>
+<ul>
+<li>红框 1 处输入公钥名称或邮箱地址来选择对方的公钥，支持多选。选择的公钥用于加密消息，以及决定谁能解密。</li>
+<li>红框 2 处选择自己的私钥。选择的私钥用于将发件人的身份告知对方。</li>
+<li>红框 3 处选择要发送给对方的文件。只能选择一个文件，选择多个可能会导致加密失败。如需分享多个文件，可以手动将文件打包为一个文件再加密。</li>
+<li>红框 4 处为加密文件为密文文件并保存。</li>
+<li>红框 5 处为加密文件为密文文件并分享到其他应用。</li>
+</ul>
+</li>
+<li>
+<p>进行加密操作时，如果创建密钥对时设置了私钥密码，则此时需要在“密码”输入框中输入先前设置的密码，然后点击“解锁”按钮。</p>
+<p><img src="openkeychain/shared/entering-private-key-passphrase.png" alt="输入私钥密码" /></p>
+</li>
+<li>
+<p>加密完成后密文文件会根据先前选择的操作，保存到指定的位置，或分享到其他应用。</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="解密消息-1"><a class="header" href="#解密消息-1">解密消息</a></h1>
+<p>本章节中将介绍 <a href="openkeychain/decrypting-message-text.html">密文文本</a> 或 <a href="openkeychain/decrypting-message-file.html">密文文件</a> 的解密方法。</p>
+<p>解密方法推荐都学习。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="解密消息文本-1"><a class="header" href="#解密消息文本-1">解密消息文本</a></h1>
+<ol>
+<li>
+<p>收到以 <code>-----BEGIN PGP MESSAGE-----</code> 开头的密文文本。</p>
+</li>
+<li>
+<p>选择以下一种方法让 OpenKeychain 读取密文文本。</p>
+<blockquote>
+<p><strong>方式 1：分享密文文本到 OpenKeychain</strong></p>
+<p>部分应用（如 Via浏览器）支持分享文本到其他应用。利用此特性，分享密文文本到 OpenKeychain 让其读取。</p>
+<p>参考步骤：</p>
+<ol>
+<li>
+<p>选中密文文本。</p>
+</li>
+<li>
+<p>点击文本周围出现的工具栏上的分享按钮。</p>
+</li>
+<li>
+<p>点击“OpenKeychain：解密”和“<strong>仅此一次</strong>”（如果有该项）。</p>
+<p><img src="openkeychain/shared/using-openkeychain-to-handle-message.png" alt="使用 OpenKeychain 处理消息或密文" /></p>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>方式 2：手动指定从剪贴板读取</strong></p>
+<ol>
+<li>
+<p>打开 OpenKeychain，从屏幕左侧向右滑动拉出侧边菜单。</p>
+</li>
+<li>
+<p>点击“加密/解密”。</p>
+<p><img src="openkeychain/shared/encrypting-and-decrypting.png" alt="加密/解密”" /></p>
+</li>
+<li>
+<p>点击“从剪贴板导入”。</p>
+</li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>进行解密操作时，如果创建密钥对时设置了私钥密码，则此时需要在“密码”输入框中输入先前设置的密码，然后点击“解锁”按钮。</p>
+<p><img src="openkeychain/shared/entering-private-key-passphrase.png" alt="输入私钥密码" /></p>
+</li>
+<li>
+<p>解密完成后会跳转到独立的页面显示解密得到的原始文本。</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="解密消息文件-1"><a class="header" href="#解密消息文件-1">解密消息文件</a></h1>
+<ol>
+<li>
+<p>收到文件后缀名为 <code>.gpg</code> 或 <code>.pgp</code> 的密文文件。</p>
+</li>
+<li>
+<p>选择以下一种方法让 OpenKeychain 读取密文文件。</p>
+<blockquote>
+<p><strong>方式 1：分享密文文件到 OpenKeychain</strong></p>
+<ol>
+<li>
+<p>文件管理器中长按密文文件。</p>
+</li>
+<li>
+<p>点击分享相关的按钮，然后点击“OpenKeychain：解密”和“<strong>仅此一次</strong>”（如果有该项）。</p>
+<p><img src="openkeychain/shared/using-openkeychain-to-handle-message.png" alt="使用 OpenKeychain 处理消息或密文" /></p>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>方式 2：手动指定读取的文件</strong></p>
+<ol>
+<li>
+<p>打开 OpenKeychain，从屏幕左侧向右滑动拉出侧边菜单。</p>
+</li>
+<li>
+<p>点击“加密/解密”。</p>
+<p><img src="openkeychain/shared/encrypting-and-decrypting.png" alt="加密/解密”" /></p>
+</li>
+<li>
+<p>点击“从文件导入”。</p>
+</li>
+<li>
+<p>选择需要解密的密文文件。</p>
+</li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>进行解密操作时，如果创建密钥对时设置了私钥密码，则此时需要在“密码”输入框中输入先前设置的密码，然后点击“解锁”按钮。</p>
+<p><img src="openkeychain/shared/entering-private-key-passphrase.png" alt="输入私钥密码" /></p>
+</li>
+<li>
+<p>解密完成后会跳转到独立的页面显示解密得到的原始文件。可以另存到指定位置。</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="文本分享网站"><a class="header" href="#文本分享网站">文本分享网站</a></h1>
+<p>发送大段的文本（如公钥、密文等），推荐的方式是将文本复制到文本分享网站上为其创建分享链接，然后把分享链接发送给对方。</p>
+<p>这样做的好处有：</p>
+<ul>
+<li>避免因为文本过长，而发送失败，或者发送后造成刷屏，影响观感。</li>
+<li>降低消息内容被平台（如聊天软件等）记录审查，或者窃取篡改的可能。</li>
+</ul>
+<p>以下是部分免登录的文本分享网站的推荐：</p>
+<ul>
+<li><strong><a href="https://pastebin.com/" title="点击前往外部站点">Pastebin</a></strong>：支持长期保存、阅后即焚和定时删除（立即删除需要登录），但一天里创建的分享有数量限制。</li>
+<li><strong><a href="https://paste2.org/" title="点击前往外部站点">Paste2</a></strong>：不支持删除。</li>
+<li><strong><a href="https://pastee.dev/" title="点击前往外部站点">Paste.ee</a></strong>：支持长期保存、设置过期时间和阅后即焚，但不支持删除。</li>
+<li><strong><a href="https://upaste.de/" title="点击前往外部站点">uPaste</a></strong>：过期时间固定为 1 小时，但不支持删除。</li>
+<li><strong><a href="https://hastebin.ianhon.com/" title="点击前往外部站点">Hastebin</a></strong>：不支持删除。</li>
+<li><strong><a href="https://onetimesecret.com/" title="点击前往外部站点">OneTimeSceret</a></strong>：仅支持阅后即焚。</li>
+<li><a href="http://pastie.org/" title="点击前往外部站点">Pastie</a>：过期时间固定为 24 小时，但不支持删除，不支持 HTTPS。</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="通信平台"><a class="header" href="#通信平台">通信平台</a></h1>
+<p>以下是几款相对安全的即时通信平台，可用于交换公钥、传输密文、临时沟通或其他不方便手动加密的场景：</p>
+<ul>
+<li><a href="https://hack.chat/" title="点击前往外部站点">hack.chat</a>：匿名、无记录的临时网页文本聊天室。</li>
+<li><strong><a href="https://chat.freserafim.com/zh-CN/" title="点击前往外部站点">chocoChat</a></strong>：匿名的网页文本聊天室，会保留消息，但是可以手动删除消息。</li>
+<li><strong><a href="https://delta.chat/" title="点击前往外部站点">Delta Chat</a></strong>：基于电子邮件的跨平台、多语言的端到端加密聊天应用。其官方服务器仅需昵称即可注册，且消息记录只在云端短期保存。</li>
+<li><a href="https://telegram.org/" title="点击前往外部站点">Telegram</a>：功能丰富、用户广泛的聊天应用，能长期保留聊天记录，但注册较为繁琐。</li>
+<li><a href="https://element.io//" title="点击前往外部站点">Element</a>：基于 Matrix 开放协议的端到端加密聊天应用，提供前向安全性。</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="安全与保密意识"><a class="header" href="#安全与保密意识">安全与保密意识</a></h2>
+<p>安全与保密没有绝对的标准，每个人面临的风险都不尽相同。以下是作者基于个人的安全标准提出的主观建议，请根据自身的实际情况，评估面临的风险（即“威胁模型”）和愿意付出的精力来作出决定。</p>
+<p>建议对以下内容进行加密：</p>
+<ul>
+<li>（在中国大陆地区）涉及敏感主题的内容，如 NSFW<sup class="footnote-reference" id="fr-nsfw-1"><a href="#footnote-nsfw">1</a></sup>、政治、翻墙、加密方法等，包括 <strong>本教程</strong> 在内</li>
+<li>对他人已加密发送给你的内容的引用、讨论、转发和回复</li>
+<li>其他敏感信息（如账号密码、个人信息、对称加密的密钥等）</li>
+</ul>
+<p>推荐养成以下习惯：</p>
+<ul>
+<li>始终禁止输入法联网<sup class="footnote-reference" id="fr-network-1"><a href="#footnote-network">2</a></sup>。</li>
+<li>使用翻墙或加密软件时，避免同时（在前台或后台）运行国产的软件或游戏（如 QQ、WPS、B站、原神、国产浏览器、360 等）。</li>
+</ul>
+<p><strong>以下是必须遵守的安全底线：</strong></p>
+<ul>
+<li><strong>绝对禁止</strong> 公开私钥或私钥密码。</li>
+</ul>
+<p>违反上述建议可能会导致被和谐和查水表。通过任何平台发送的内容，都有可能被识别记录，以供审查和取证。</p>
+<hr>
+<ol class="footnote-definition"><li id="footnote-nsfw">
+<p>工作场所不宜（Not Safe/Suitable For Work），指裸露、暴力、色情或冒犯等不适宜公众场合的内容。 <a href="#fr-nsfw-1">↩</a></p>
+</li>
+<li id="footnote-network">
+<p>所有联网渠道，在移动端通常包括 WLAN 和移动数据网络。 <a href="#fr-network-1">↩</a></p>
+</li>
+</ol><div style="break-before: page; page-break-before: always;"></div><h1 id="参考资料"><a class="header" href="#参考资料">参考资料</a></h1>
+<h2 id="中文写作风格"><a class="header" href="#中文写作风格">中文写作风格</a></h2>
+<p><a href="https://zh-style-guide.readthedocs.io/" title="点击前往外部站点">中文技术文档写作风格指南</a></p>
+<p><a href="https://github.com/sparanoid/chinese-copywriting-guidelines" title="点击前往外部站点">中文文案排版指北</a></p>
+<h2 id="markdown-教程"><a class="header" href="#markdown-教程">Markdown 教程</a></h2>
+<p><a href="https://www.markdownguide.org/" title="点击前往外部站点">Markdown Guide</a></p>
+<p><a href="https://markdown.com.cn/" title="点击前往外部站点">Markdown 教程</a></p>
+<h2 id="非对称加密-1"><a class="header" href="#非对称加密-1">非对称加密</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Public-key_cryptography" title="点击前往外部站点">Public-key cryptography</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy" title="点击前往外部站点">Pretty Good Privacy</a></p>
+<p><a href="https://en.wikipedia.org/wiki/GNU_Privacy_Guard" title="点击前往外部站点">GNU Privacy Guard</a></p>
+<p><a href="https://www.openpgp.org/" title="点击前往外部站点">OpenPGP</a></p>
+<p><a href="https://ruanyifeng.com/blog/2013/07/gpg.html" title="点击前往外部站点">GPG入门教程（作者：阮一峰）</a></p>
+<h2 id="pastebin-收集"><a class="header" href="#pastebin-收集">Pastebin 收集</a></h2>
+<p><a href="https://getsharex.com/" title="点击前往外部站点">ShareX</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>
