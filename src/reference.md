@@ -27,3 +27,11 @@
 ## Pastebin 收集
 
 [ShareX](https://getsharex.com/ "点击前往外部站点")
+
+## mdBook 与 GitHub Actions
+
+[mdBook 工作流模板](https://github.com/actions/starter-workflows/blob/main/pages/mdbook.yml  "点击前往外部站点")
+
+[通过 GitHub Pages 使用自定义工作流](https://docs.github.com/zh/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages  "点击前往外部站点")
+
+[Support CJK (mutiple language) search](https://github.com/rust-lang/mdBook/issues/2052  "点击前往外部站点")
