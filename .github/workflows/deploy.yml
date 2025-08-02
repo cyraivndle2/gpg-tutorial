@@ -35,6 +35,13 @@ jobs:
         with:
           mdbook-version: 'latest'
 
+      # https://github.com/rust-lang/mdBook/issues/2052
+      - name: Setup mdBook extension - CJK (Multiple language) Search
+        run: |
+          mkdir -p vendor/cjk-search
+          curl -o vendor/cjk-search/fzf.umd.js https://raw.githubusercontent.com/allfunc/docker-mdbook/refs/heads/main/mdbook-demo/assets/fzf.umd.js
+          curl -o vendor/cjk-search/elasticlunr.js https://raw.githubusercontent.com/allfunc/docker-mdbook/refs/heads/main/mdbook-demo/assets/elasticlunr.js
+
       - name: Build book
         run: mdbook build
 
