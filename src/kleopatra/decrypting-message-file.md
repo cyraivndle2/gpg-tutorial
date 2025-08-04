@@ -22,7 +22,7 @@
 
     ![解密的文件](decrypting-message/decrypted-file.png)
 
-5. 如果软件询问是否以原始文件名保存，按提示自行决定。
+5. 如果软件询问是否以原始文件名保存，根据显示的文件名自行比较决定。原始文件名通常更为完整且含义清晰。（注：该界面上的“是，覆盖”为误译，实际是“是，另存为”）
 
     ![是否原始文件名保存](decrypting-message/saving-with-original-file-name.png)
 
