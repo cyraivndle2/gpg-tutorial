@@ -8,7 +8,7 @@
 
     ![密钥列表](exporting-public-key/certificates.png)
 
-2. 进入密钥概览界面。点击右上角的三点按钮，然后点击“更多密钥详情”。
+2. 进入密钥概览界面。点击右上角的三点按钮，然后选择“更多密钥详情”选项。
 
     ![更多密钥详情](exporting-public-key/key-detail-button.png)
 

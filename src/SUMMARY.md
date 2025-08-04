@@ -39,7 +39,7 @@
 # 技巧 / 拓展
 
 - [文本分享网站（Pastebin）](pastebin.md)
-- [通信平台](communication-platform.md)
+- [即时通信平台](communication-platform.md)
 - [安全与保密意识](security-and-secret.md)
 
 ---
