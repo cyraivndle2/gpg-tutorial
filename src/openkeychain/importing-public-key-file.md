@@ -2,18 +2,18 @@
 
 1. 收到文件后缀名为 `.asc` 的公钥文件，以及该公钥的指纹截图。
 
-2. 选择以下一种方法让 OpenKeychain 读取公钥文件。
+2. 选择以下一种方式让 OpenKeychain 读取公钥文件。
 
-    > **方法 1：直接打开公钥文件**
+    > **方式 1：直接打开公钥文件**
     >
-    > 文件管理器点击公钥文件，然后点击“OpenKeychain：导入密钥”和“**仅此一次**”（如果有该项）。
+    > 点击打开公钥文件，然后选择“OpenKeychain：导入密钥”选项和选择“**仅此一次**”选项（如果有该项）。
     >
     > ![使用 OpenKeychain 处理公钥](importing-public-key/using-openkeychain-to-handle-public-key.png)
 
     > **方式 2：手动指定并读取公钥文件**
     >
     > 1. 打开 OpenKeychain 进入密钥管理界面。
-    > 2. 点击界面右下角的圆形“+”图标，然后点击“从文件导入”。
+    > 2. 点击界面右下角的圆形“+”图标，然后选择“从文件导入”选项。
     >
     >    ![从文件导入](importing-public-key/importing-public-key-from-file.png)
     >
@@ -29,7 +29,7 @@
 
     ![点击导入的公钥](importing-public-key/clicking-imported-public-key.png)
 
-5. 进入密钥概览界面。点击右上角的三点按钮，然后点击“通过指纹确认”。
+5. 进入密钥概览界面。点击右上角的三点按钮，然后选择“通过指纹确认”选项。
 
     ![点击通过指纹确认](importing-public-key/clicking-confirm-through-fingerprint-button.png)
 
