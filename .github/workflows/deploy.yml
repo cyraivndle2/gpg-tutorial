@@ -26,7 +26,9 @@ jobs:
     steps:
       - name: Checkout source repo
         uses: actions/checkout@v4
-      - run: git fetch --tags
+        with:
+          fetch-depth: 0
+          fetch-tags: true
 
       - name: Check EditorConfig compliance
         uses: editorconfig-checker/action-editorconfig-checker@main
@@ -44,7 +46,7 @@ jobs:
           curl -o vendor/cjk-search/elasticlunr.js https://raw.githubusercontent.com/allfunc/docker-mdbook/refs/heads/main/mdbook-demo/assets/elasticlunr.js
 
       - name: Generate version link
-        run: echo "[$(git describe --tags)](https://github.com/cyraivndle2/gpg-tutorial/commit/$(git rev-parse HEAD))" > src/.version
+        run: v="$(git describe --tags)" && echo "[$v](https://github.com/cyraivndle2/gpg-tutorial/commit/$(git rev-parse HEAD))" > src/.version
 
       - name: Build book
         run: mdbook build
