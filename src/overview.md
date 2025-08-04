@@ -1,4 +1,4 @@
-> 当前教程版本为 *2.0.3-preview.6*。  
+> 当前教程版本为 *{{#include .version}}*。  
 > 采用 [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议。
 
 本教程主要讲解非对称加密的基本原理和流程，并为 Kleopatra 和 OpenKeychain 两款支持 OpenPGP 标准的非对称加密软件提供对应的图文使用教程与技巧。

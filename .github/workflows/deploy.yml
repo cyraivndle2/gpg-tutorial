@@ -26,6 +26,7 @@ jobs:
     steps:
       - name: Checkout source repo
         uses: actions/checkout@v4
+      - run: git fetch --tags
 
       - name: Check EditorConfig compliance
         uses: editorconfig-checker/action-editorconfig-checker@main
@@ -41,6 +42,9 @@ jobs:
           mkdir -p vendor/cjk-search
           curl -o vendor/cjk-search/fzf.umd.js https://raw.githubusercontent.com/allfunc/docker-mdbook/refs/heads/main/mdbook-demo/assets/fzf.umd.js
           curl -o vendor/cjk-search/elasticlunr.js https://raw.githubusercontent.com/allfunc/docker-mdbook/refs/heads/main/mdbook-demo/assets/elasticlunr.js
+
+      - name: Generate version link
+        run: echo "[$(git describe --tags)](https://github.com/cyraivndle2/gpg-tutorial/commit/$(git rev-parse HEAD))" > src/.version
 
       - name: Build book
         run: mdbook build
