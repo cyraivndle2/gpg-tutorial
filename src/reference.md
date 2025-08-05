@@ -30,6 +30,8 @@
 
 ## mdBook 与 GitHub Actions
 
+[mdBook Documentation](https://rust-lang.github.io/mdBook/index.html "点击前往外部站点")
+
 [mdBook 工作流模板](https://github.com/actions/starter-workflows/blob/main/pages/mdbook.yml  "点击前往外部站点")
 
 [通过 GitHub Pages 使用自定义工作流](https://docs.github.com/zh/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages  "点击前往外部站点")
