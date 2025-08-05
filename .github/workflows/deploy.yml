@@ -1,7 +1,12 @@
 name: build and Deploy mdBook
 
 on:
+  # https://github.com/orgs/community/discussions/25615
   push:
+    branches:
+      - '**'
+    tags:
+      - '!**'
   pull_request:
     branches:
       - 'main'
