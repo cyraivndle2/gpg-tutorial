@@ -21,7 +21,7 @@
 
     ![检查指纹](importing-public-key/checking-fingerprint.png)
 
-5. “认证方式”下拉框选择自己的私钥，然后点击“认证”按钮。
+5. 在“认证方式”下拉框中选择自己的私钥，然后点击“认证”按钮。
 
     ![认证公钥](importing-public-key/certifying.png)
 
