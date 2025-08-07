@@ -6,7 +6,7 @@
 
     > **方式 1：直接打开公钥文件**
     >
-    > 点击打开公钥文件，然后选择“OpenKeychain：导入密钥”选项和选择“**仅此一次**”选项（如果有该项）。
+    > 点击打开公钥文件，然后选择“OpenKeychain：导入密钥”选项和“**仅此一次**”选项（如果有该项）。
     >
     > ![使用 OpenKeychain 处理公钥](importing-public-key/using-openkeychain-to-handle-public-key.png)
 
