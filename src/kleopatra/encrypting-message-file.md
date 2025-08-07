@@ -8,7 +8,7 @@
 
     ![签名/加密按钮](encrypting-message/signing-and-ecrypting-button.png)
 
-3. 在“签名/加密文件”对话框中，“签名身份”下拉框选择自己的私钥。选择的私钥用于将发件人的身份告知对方。
+3. 在“签名/加密文件”对话框的“签名身份”下拉框中，选择自己的私钥，用于标识发件人的身份。
 
     ![签名/加密文件对话框](encrypting-message/file-recipients.png)
 
