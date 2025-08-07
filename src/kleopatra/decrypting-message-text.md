@@ -10,7 +10,7 @@
 
     ![解密密文文本](decrypting-message/decrypting-text.png)
 
-4. 如果创建密钥对时设置了私钥密码，则此时需要在“Passphrase”输入框中输入先前设置的私钥密码，然后点击“OK”按钮。
+4. 在“Passphrase”输入框中输入先前设置的私钥密码，然后点击“OK”按钮。
 
     ![输入私钥密码](shared/entering-private-key-passphrase.png)
 
