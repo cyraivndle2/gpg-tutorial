@@ -25,7 +25,7 @@
 
     ![认证公钥](importing-public-key/certifying.png)
 
-6. 如果创建密钥对时设置了“使用密码句保护生成的密钥”，则此时需要在“Passphrase”输入框中输入先前设置的私钥密码，然后点击“OK”按钮。
+6. 如果创建密钥对时设置了私钥密码，则此时需要在“Passphrase”输入框中输入先前设置的私钥密码，然后点击“OK”按钮。
 
     ![输入私钥密码](shared/entering-private-key-passphrase.png)
 
