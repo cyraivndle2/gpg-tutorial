@@ -4,7 +4,7 @@
 
 ## 导出公钥 {#exporting-public-key}
 
-1. 进入 Kleopatra 证书管理界面，**点击** 需要导出的公钥，然后点击工具栏上的“导出”按钮。
+1. 进入 Kleopatra 证书管理界面，选择需要导出的公钥，然后点击工具栏上的“导出”按钮。
 
     ![导出公钥按钮](exporting-public-key/exporting-public-key-button.png)
 
