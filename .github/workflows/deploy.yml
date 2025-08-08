@@ -35,8 +35,11 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
 
-      - name: Check EditorConfig compliance
+      - name: Setup EditorConfig Checker
         uses: editorconfig-checker/action-editorconfig-checker@main
+
+      - name: Run EditorConfig Checker
+        run: editorconfig-checker
 
       - name: Setup mdBook
         uses: peaceiris/actions-mdbook@v2
