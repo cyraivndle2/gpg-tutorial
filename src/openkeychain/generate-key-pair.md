@@ -11,15 +11,15 @@
 
     ![管理我的密钥](generate-key-pair/manage-my-keys.png)
 
-3. 输入关联密钥对的称谓，然后点击“下一步”按钮。所输入的称谓应能够使收到公钥的人辨认出这个公钥的身份。
+3. 输入你的称谓，确保收到公钥的人能通过其辨认出密钥所有者的身份。
 
     ![称谓](generate-key-pair/name.png)
 
-4. 输入关联密钥对的电子邮件地址，然后点击“下一步”按钮。所输入的电子邮件地址应能够使收到公钥的人辨认出这个公钥的身份。
+4. 输入你的邮箱地址，确保收到公钥的人能通过其辨认出密钥所有者的身份。
 
-    > 如果该密钥对需要用于支持 OpenPGP 的在线服务，如电子邮件、在线 Git 托管服务（如 GitHub）、公钥服务器等，则必须填写能够联系到你的电子邮件地址。  
+    > 如果该密钥对需要用于支持 OpenPGP 的在线服务，如电子邮箱、在线 Git 托管服务（如 GitHub）、公钥服务器等，则必须填写能够联系到你的邮箱地址。  
     >   
-    > 特殊的情况是 GitHub 如果启用了“Keep my email addresses private”（不公开我的电子邮件地址），则 Git 提交和 GPG 公钥需要使用 GitHub 提供的带有 `no-reply` 的电子邮件地址才能让该设置生效。详见 [这篇 GitHub 帮助文档第 8 条的 Note](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key#generating-a-gpg-key)。
+    > 特殊的情况是 GitHub 如果启用了“Keep my email addresses private”（不公开我的邮箱地址），则 Git 提交和 GPG 公钥需要使用 GitHub 提供的带有 `no-reply` 的邮箱地址才能让该设置生效。详见 [这篇 GitHub 帮助文档第 8 条的 Note](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key#generating-a-gpg-key)。
 
     ![电子邮件地址](generate-key-pair/email.png)
 
