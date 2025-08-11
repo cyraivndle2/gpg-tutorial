@@ -50,4 +50,4 @@
 
     ![输入私钥密码](shared/enter-private-key-passphrase.png)
 
-9. 完成公钥的导入与认证。被导入的公钥会显示在 OpenKeychain 密钥管理界面中。
+9. 已导入的公钥将显示在 OpenKeychain 的密钥管理界面中。
