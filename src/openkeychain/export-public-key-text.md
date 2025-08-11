@@ -4,7 +4,7 @@
 
 ## 导出公钥 {#export-public-key}
 
-1. 进入 OpenKeychain 密钥管理界面，选择需要导出的公钥。
+1. 进入 OpenKeychain 的密钥管理界面，选择需要导出的公钥。
 
     ![密钥列表](export-public-key/certificates.png)
 
