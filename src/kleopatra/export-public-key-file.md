@@ -4,7 +4,7 @@
 
 ## 导出公钥 {#export-public-key}
 
-1. 进入 Kleopatra 证书管理界面，选择需要导出的公钥，然后点击工具栏上的“导出”按钮。
+1. 进入 Kleopatra 的证书管理界面，选择需要导出的公钥，然后点击工具栏上的“导出”按钮。
 
     ![导出公钥按钮](export-public-key/export-public-key-button.png)
 
@@ -14,7 +14,7 @@
 
 1. 将公钥文件发送给对方。
 
-2. 回到 Kleopatra 证书管理界面，**双击** 需要导出的公钥。
+2. 回到 Kleopatra 的证书管理界面，**双击** 需要导出的公钥。
 
 3. <a id="fingerprint"></a>进入证书细节界面，通过截图等方式记录指纹，用于后续的验证。
 
