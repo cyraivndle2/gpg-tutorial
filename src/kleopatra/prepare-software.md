@@ -6,7 +6,7 @@
 
 2. 选择捐赠的金额，然后点击下载按钮下载软件。
 
-    如果不打算捐赠，点击“$0”按钮，然后点击“Download”按钮直接下载软件安装包。
+    如果不打算捐赠，选择“$0”，然后点击“Download”按钮直接下载软件安装包。
 
     ![不捐赠直接下载](prepare-software/download-without-donation.png)
 
