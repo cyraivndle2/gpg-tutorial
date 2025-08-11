@@ -26,4 +26,4 @@
 
     ![设置私钥密码](generate-key-pair/passphrase.png)
 
-7. 完成密钥对的创建。
+7. 完成密钥对的创建。创建好的密钥对会显示在 Kleopatra 证书管理界面中。

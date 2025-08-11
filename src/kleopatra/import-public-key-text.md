@@ -31,4 +31,4 @@
 
     ![输入私钥密码](shared/enter-private-key-passphrase.png)
 
-8. 完成公钥的导入与认证。
+8. 完成公钥的导入与认证。被导入的公钥会显示在 Kleopatra 证书管理界面中。
