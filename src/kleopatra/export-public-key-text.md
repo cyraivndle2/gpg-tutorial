@@ -4,7 +4,7 @@
 
 ## 导出公钥 {#export-public-key}
 
-1. 进入 Kleopatra 证书管理界面，**双击** 需要导出的公钥。
+1. 进入 Kleopatra 的证书管理界面，**双击** 需要导出的公钥。
 
     ![证书列表](export-public-key/certificates.png)
 

@@ -3,7 +3,7 @@
 > **注意：**  
 > 如果你是第一次打开 OpenKeychain，请从 [第 2 步](#manage-my-keys) 开始看。
 
-1. 在 OpenKeychain 密钥管理界面，点击右上角的三点按钮，然后选择“管理我的密钥”选项。
+1. 在 OpenKeychain 的密钥管理界面，点击右上角的三点按钮，然后选择“管理我的密钥”选项。
 
     ![密钥管理界面菜单](generate-key-pair/home-page-popup.png)
 
@@ -45,4 +45,4 @@
 
     ![创建密钥](generate-key-pair/generate-key-button.png)
 
-10. 完成密钥对的创建。创建好的密钥对会显示在 OpenKeychain 密钥管理界面中。
+10. 完成密钥对的创建。创建好的密钥对会显示在 OpenKeychain 的密钥管理界面中。

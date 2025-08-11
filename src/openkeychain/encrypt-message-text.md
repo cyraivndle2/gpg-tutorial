@@ -6,7 +6,7 @@
 
     > **方式 1：从密钥概览界面进入**
     >
-    > 1. 进入 OpenKeychain 密钥管理界面，选择收件人的密钥。
+    > 1. 进入 OpenKeychain 的密钥管理界面，选择收件人的密钥。
     > 2. 点击加密文本按钮（图中的 2 处）。
     >
     >    ![加密按钮](encrypt-message/encrypt-button-from-key-overview.png)

@@ -2,7 +2,7 @@
 
 1. 收到以 `-----BEGIN PGP PUBLIC KEY BLOCK-----` 开头的公钥文本。
 
-2. 进入 Kleopatra 记事本界面，并切换到“记事本”选项卡。
+2. 进入 Kleopatra 的记事本界面，并切换到“记事本”选项卡。
 
     ![记事本](shared/notepad.png)
 
