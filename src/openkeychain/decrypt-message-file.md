@@ -10,7 +10,7 @@
     >
     >    ![使用 OpenKeychain 处理消息或密文](shared/use-openkeychain-to-handle-message.png)
 
-    > **方式 2：手动指定读取的文件**
+    > **方式 2：手动指定密文文件**
     >
     > 1. 打开 OpenKeychain，从屏幕左侧向右滑动拉出侧边菜单。
     > 2. 选择“加密/解密”选项。
