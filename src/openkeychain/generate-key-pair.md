@@ -45,4 +45,4 @@
 
     ![创建密钥](generate-key-pair/generate-key-button.png)
 
-10. 完成密钥对的创建。创建好的密钥对会显示在 OpenKeychain 的密钥管理界面中。
+10. 创建好的密钥对会显示在 OpenKeychain 的密钥管理界面中。
