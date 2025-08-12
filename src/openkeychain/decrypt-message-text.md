@@ -29,4 +29,4 @@
 
     ![输入私钥密码](shared/enter-private-key-passphrase.png)
 
-4. 解密完成后会跳转到独立的页面显示解密得到的原始文本。
+4. 解密得到的文本会显示在新页面。
