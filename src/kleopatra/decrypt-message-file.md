@@ -14,9 +14,7 @@
 
     ![输入私钥密码](shared/enter-private-key-passphrase.png)
 
-4. 解密完成得到原始文件。
-
-    点击“输出文件夹”输入框右侧的 ![设置输出路径按钮](decrypt-message/set-output-path-button.png) 按钮打开“选择文件夹”对话框，选择原始文件的保存位置。
+4. 点击“输出文件夹”输入框右侧的 ![设置输出路径按钮](decrypt-message/set-output-path-button.png) 按钮打开“选择文件夹”对话框，选择解密得到的文件的保存位置。
     
     随后再点击“Save All”按钮。
 
@@ -26,4 +24,4 @@
 
     ![是否原始文件名保存](decrypt-message/save-with-original-file-name.png)
 
-6. 原始文件将保存在指定的位置。
+6. 解密得到的文件会被保存在指定的位置。
