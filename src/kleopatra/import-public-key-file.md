@@ -29,4 +29,4 @@
 
     ![输入私钥密码](shared/enter-private-key-passphrase.png)
 
-7. 已导入的公钥将显示在 Kleopatra 的证书管理界面中。
+7. 已导入的公钥会显示在 Kleopatra 的证书管理界面中。
