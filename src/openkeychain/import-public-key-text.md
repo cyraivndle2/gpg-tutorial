@@ -63,4 +63,4 @@
 
     ![输入私钥密码](shared/enter-private-key-passphrase.png)
 
-8. 已导入的公钥将显示在 OpenKeychain 的密钥管理界面中。
+8. 已导入的公钥会显示在 OpenKeychain 的密钥管理界面中。
