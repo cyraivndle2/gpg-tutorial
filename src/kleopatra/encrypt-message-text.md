@@ -22,7 +22,7 @@
 
     ![输入私钥密码](shared/enter-private-key-passphrase.png)
 
-9. 加密完成得到密文文本。密文文本会取代原来的消息文本出现在“记事本”选项卡下的输入框中。
+9. 加密得到的密文文本会取代原来要发送的文本出现在“记事本”选项卡下的输入框中。
 
     ![密文](encrypt-message/cipertext.png)
 
