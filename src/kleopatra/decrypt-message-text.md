@@ -14,6 +14,6 @@
 
     ![输入私钥密码](shared/enter-private-key-passphrase.png)
 
-5. 解密完成得到原始文本，原始文本会取代先前的密文文本出现在“记事本”选项卡下的输入框中。
+5. 解密得到的文本会取代先前的密文文本出现在“记事本”选项卡下的输入框中。
 
     ![文本解密结果](decrypt-message/decrypted-text.png)
