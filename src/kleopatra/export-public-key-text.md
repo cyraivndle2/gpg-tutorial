@@ -14,7 +14,7 @@
 
     ![证书细节](export-public-key/certificate-detail.png)
 
-3. 点击“导出”按钮，公钥会显示在文本框中。
+3. 点击“导出”按钮，公钥会显示在导出界面的文本框中。
 
     ![公钥文本](export-public-key/public-key-text.png)
 
