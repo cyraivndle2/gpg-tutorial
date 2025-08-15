@@ -24,4 +24,4 @@
 
     ![是否原始文件名保存](decrypt-message/save-with-original-file-name.png)
 
-6. 解密得到的文件会被保存在指定的位置。
+6. 解密得到的文件会被保存在此前指定的位置。
