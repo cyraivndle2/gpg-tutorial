@@ -4,7 +4,7 @@
 
 2. 在资源管理器中双击密文文件。
 
-    若双击后未出现 Kleopatra 的界面，则右击密文文件，然后点击“Decrypt and verify”（如果找不到该菜单，请尝试在“More GpgEX Options”菜单里找）。
+    若双击后未出现 Kleopatra 的界面，则右击密文文件，然后点击“Decrypt and verify”（如果找不到该菜单，请检查 [GpgEX](prepare-software.md#gpgex) 是否安装，或在“More GpgEX Options”菜单里查找）。
 
     或在 Kleopatra 中点击工具栏的“解密/校验”按钮，然后在弹出的对话框中选择密文文件。
 
