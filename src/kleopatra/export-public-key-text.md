@@ -20,7 +20,7 @@
 
 ## 分享公钥 {#share-public-key}
 
-1. 将公钥复制到 [文本分享网站](../pastebin.md) 上为其生成分享链接，然后将链接发送给对方。
+1. 将公钥复制到 [文本分享网站](../pastebin.md) 上为其创建分享链接，然后将链接发送给对方。
 
 2. 等待对方 [导入公钥时通过另一信道发来指纹](import-public-key-text.md#fingerprint)，并检查其与 [导出的公钥的指纹](#fingerprint) 是否一致。
 
