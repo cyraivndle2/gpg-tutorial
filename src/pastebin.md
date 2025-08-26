@@ -15,6 +15,6 @@
 - **[uPaste](https://upaste.de/ "点击前往外部站点")**：过期时间固定为 1 小时，但不支持删除。
 - **[Hastebin](https://hastebin.ianhon.com/ "点击前往外部站点")**：不支持删除。
 - **[OneTimeSceret](https://onetimesecret.com/ "点击前往外部站点")**：仅支持阅后即焚。
-- **[Pastebin Worker](https://shz.al/ "点击前往外部站点")**：支持分享文本和文件。支持设置内容过期时间（最长 30 天），支持更新和删除内容。需要较新版本的浏览器[^response-bytes]。  
+- **[Pastebin Worker](https://shz.al/ "点击前往外部站点")**：支持分享文本和文件。支持设置内容过期时间（最长 30 天），支持更新和删除内容。如果在查看分享内容时出现错误，可尝试升级或更换浏览器[^response-bytes]。
 
-[^response-bytes]: 由于网站使用了 [`Response.bytes()`](https://developer.mozilla.org/en-US/docs/Web/API/Response/bytes#browser_compatibility "点击前往外部站点") API，因此要求浏览器（或其内核）版本不低于 `Chromium 132` 或 `Firefox 128` 等。
+[^response-bytes]: 由于网站使用了 [`Response.bytes()`](https://developer.mozilla.org/en-US/docs/Web/API/Response/bytes#browser_compatibility "点击前往外部站点") API，因此要求浏览器（或其内核）版本不低于 Chromium 132 或 Firefox 128 等。
