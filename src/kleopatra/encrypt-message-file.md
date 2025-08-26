@@ -6,7 +6,7 @@
 
     或者在 Kleopatra 中，点击工具栏上的“签名/加密”按钮，然后在“选择一个或多个要签名/加密的文件”对话框中选择要发送的文件。
 
-    ![签名/加密按钮](encrypt-message/sign-and-ecrypt-button.png)
+    ![签名/加密按钮](encrypt-message/sign-and-encrypt-button.png)
 
 3. 在“签名/加密文件”对话框的“签名身份”下拉框中，选择自己的私钥，用于标识发件人的身份。
 

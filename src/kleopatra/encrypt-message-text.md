@@ -24,6 +24,6 @@
 
 9. 加密得到的密文文本会取代原来要发送的文本出现在“记事本”选项卡下的输入框中。
 
-    ![密文](encrypt-message/cipertext.png)
+    ![密文](encrypt-message/ciphertext.png)
 
 10. 复制密文文本粘贴到 [文本分享网站](../pastebin.md) 上为其创建分享链接，然后把链接发送给对方。
