@@ -1,0 +1,4 @@
+book/
+vendor/
+src/.version
+.vscode/
