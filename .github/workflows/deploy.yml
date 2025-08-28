@@ -5,8 +5,8 @@ on:
   push:
     branches:
       - '**'
-    tags:
-      - '!**'
+    tags-ignore:
+      - '**'
   pull_request:
     branches:
       - 'main'
@@ -73,7 +73,7 @@ jobs:
     steps:
       - name: Deploy artifact
         id: deployment
-        if: |
-          ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main') ||
-          (github.event_name == 'pull_request' && github.base_ref == 'main')
+        # if: |
+        #   ((github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main') ||
+        #   (github.event_name == 'pull_request' && github.base_ref == 'main')
         uses: actions/deploy-pages@v4
