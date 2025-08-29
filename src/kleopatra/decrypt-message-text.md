@@ -1,6 +1,11 @@
-# 解密文本
+# 解密消息文本
 
 1. 收到以 `-----BEGIN PGP MESSAGE-----` 开头的密文文本。
+
+    > 可以通过首行的内容辨别公钥文本和密文文本：
+    >
+    > 公钥文本首行的英文：BEGIN PGP **PUBLIC KEY BLOCK**  
+    > 密文文本首行的英文：BEGIN PGP **MESSAGE**
 
 2. 进入 Kleopatra 的记事本界面，并切换到“记事本”选项卡。
 
@@ -10,7 +15,7 @@
 
     ![解密密文文本](decrypt-message/decrypt-text.png)
 
-4. 在“Passphrase”输入框中输入先前设置的私钥密码，然后点击“OK”按钮。
+4. 在“Passphrase”输入框中输入私钥密码，然后点击“OK”按钮。
 
     ![输入私钥密码](shared/enter-private-key-passphrase.png)
 

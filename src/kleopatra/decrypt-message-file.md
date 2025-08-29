@@ -1,4 +1,4 @@
-# 解密文件
+# 解密消息文件
 
 1. 收到文件后缀名为 `.gpg` 或 `.pgp` 的密文文件。
 
@@ -10,12 +10,12 @@
 
     ![解密/校验按钮](decrypt-message/decrypt-button.png)
 
-3. 在“Passphrase”输入框中输入先前设置的私钥密码，然后点击“OK”按钮。
+3. 在“Passphrase”输入框中输入私钥密码，然后点击“OK”按钮。
 
     ![输入私钥密码](shared/enter-private-key-passphrase.png)
 
 4. 点击“输出文件夹”输入框右侧的 ![设置输出路径按钮](decrypt-message/set-output-path-button.png) 按钮打开“选择文件夹”对话框，选择解密得到的文件的保存位置。
-    
+
     随后再点击“Save All”按钮。
 
     ![解密的文件](decrypt-message/decrypted-file.png)
