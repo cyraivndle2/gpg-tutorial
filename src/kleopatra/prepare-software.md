@@ -14,9 +14,8 @@
 
     ![选择组件](prepare-software/choose-components.png)
 
-5. 按需勾选要安装的组件：
+5. 勾选加密软件 **Kleopatra**，再按需勾选其他要安装的组件：
 
-    - **Kleopatra**：图形界面加密软件。后续教程围绕其展开，**应当安装**。
     - **GpgEX**：<a id="gpgex"></a>在资源管理器的右键菜单中提供加解密等功能的快捷入口，**推荐安装**。
     - **GpgOL**：电子邮件客户端 Outlook 的插件，为其增加 OpenPGP 支持。
     - **Okular**：PDF 阅读器，支持 PDF 签名与签名校验。

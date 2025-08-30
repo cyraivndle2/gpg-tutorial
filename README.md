@@ -2,9 +2,7 @@
 
 ## 构建
 
-安装 [mdBook](https://rust-lang.github.io/mdBook/guide/installation.html) 后在终端运行以下命令。
-
-Windows 用户可以使用 Git Bash。
+安装 [mdBook](https://rust-lang.github.io/mdBook/guide/installation.html) 后在终端（Windows 下可使用 Git Bash）运行以下命令：
 
 ```console
 $ git clone --tags https://github.com/cyraivndle2/gpg-tutorial.git && cd gpg-tutorial
@@ -20,7 +18,7 @@ $ mdbook serve -n 127.0.0.1
 
 ## （可选）配置 VS Code 开发环境
 
-使用 VS Code 的贡献者如果需要在文中粘贴（或拖拽）插入文件，可以向项目目录下的 `.vscode/settings.json` 文件写入以下内容。该配置可将插入的文件默认存放在与当前 Markdown 文件同名的目录下，以保持项目结构的一致。
+使用 VS Code 的编辑者如果需要在文中粘贴（或拖拽）插入文件，可以向项目目录下的 `.vscode/settings.json` 文件写入以下内容。该配置可将插入的文件默认存放在与当前 Markdown 文件同名的目录下，以保持项目结构的一致。
 
 ```json
 {
