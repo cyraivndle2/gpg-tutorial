@@ -2,6 +2,11 @@
 
 1. 收到以 `-----BEGIN PGP MESSAGE-----` 开头的密文文本。
 
+    > 可以通过首行的内容辨别公钥文本和密文文本：
+    >
+    > 公钥文本首行的英文：BEGIN PGP **PUBLIC KEY BLOCK**  
+    > 密文文本首行的英文：BEGIN PGP **MESSAGE**
+
 2. 选择以下一种方式让 OpenKeychain 读取密文文本。
 
     > **方式 1：分享密文文本到 OpenKeychain**
