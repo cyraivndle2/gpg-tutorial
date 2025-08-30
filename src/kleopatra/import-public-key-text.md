@@ -2,6 +2,11 @@
 
 1. 收到以 `-----BEGIN PGP PUBLIC KEY BLOCK-----` 开头的公钥文本。
 
+    > 可以通过首行的内容辨别公钥文本和密文文本：
+    >
+    > 公钥文本首行的英文：BEGIN PGP **PUBLIC KEY BLOCK**  
+    > 密文文本首行的英文：BEGIN PGP **MESSAGE**
+
 2. 进入 Kleopatra 的记事本界面，并切换到“记事本”选项卡。
 
     ![记事本](shared/notepad.png)
