@@ -45,7 +45,7 @@
 
     ![认证公钥](import-public-key/certify.png)
 
-8. 在“密码”输入框中输入先前设置的私钥密码，然后点击“解锁”按钮。
+8. 在“密码”输入框中输入私钥密码，然后点击“解锁”按钮。
 
     ![输入私钥密码](shared/enter-private-key-passphrase.png)
 
