@@ -4,7 +4,7 @@ language = "zh"
 multilingual = false
 src = "src"
 title = "非对称加密教程（GPG 教程）"
-description = "面向初学者的非对称加密软件（GnuPG、Gpg4win、Kleopatra、OpenKeychain）的原理介绍与图文使用教程。"
+description = "面向初学者的非对称加密教程，讲解非对称加密的基本概念和流程，提供非对称加密软件 Kleopatra（GnuPG/Gpg4win）和 OpenKeychain 的图文使用教程。"
 
 [build]
 create-missing = false
