@@ -18,7 +18,7 @@
 
 7. 点击“签名/加密记事本内容”按钮。
 
-8. 在“Passphrase”输入框中输入先前设置的私钥密码，然后点击“OK”按钮。
+8. 在“Passphrase”输入框中输入私钥密码，然后点击“OK”按钮。
 
     ![输入私钥密码](shared/enter-private-key-passphrase.png)
 

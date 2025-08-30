@@ -10,7 +10,7 @@
 
     ![解密密文文本](decrypt-message/decrypt-text.png)
 
-4. 在“Passphrase”输入框中输入先前设置的私钥密码，然后点击“OK”按钮。
+4. 在“Passphrase”输入框中输入私钥密码，然后点击“OK”按钮。
 
     ![输入私钥密码](shared/enter-private-key-passphrase.png)
 
