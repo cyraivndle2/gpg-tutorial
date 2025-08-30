@@ -24,8 +24,8 @@
 
     ![输入私钥密码](shared/enter-private-key-passphrase.png)
 
-9. 加密完成后，密文会取代原文本显示在“记事本”选项卡下的输入框中。
+9. 加密完成后，密文文本会取代原文本显示在“记事本”选项卡下的输入框中。
 
-    ![密文](encrypt-message/ciphertext.png)
+    ![密文文本](encrypt-message/ciphertext.png)
 
-10. 可复制密文到 [文本分享网站](../pastebin.md) 为其创建分享链接，再将链接发给对方。
+10. 可复制密文文本到 [文本分享网站](../pastebin.md) 为其创建分享链接，再将链接发给对方。
