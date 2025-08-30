@@ -1,12 +1,13 @@
-> 当前教程版本为 *{{#include .version}}*。  
-> 采用 [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议。
+> 教程版本： *{{#include .version}}*
 
-本教程主要讲解非对称加密的基本原理和流程，并为 Kleopatra 和 OpenKeychain 两款支持 OpenPGP 标准的非对称加密软件提供对应的图文使用教程与技巧。
+本教程主要面向无技术背景的初学者，讲解 [非对称加密的基本概念和流程](introduction.md)，并为非对称加密软件 [Kleopatra](kleopatra.md) 和 [OpenKeychain](openkeychain.md) 提供对应的图文使用教程与技巧。
 
-本教程的编写目的是帮助无技术背景的初学者掌握非对称加密工具的使用。
+本教程中 [蓝色的文字](#) 为超链接，可以 **点击跳转** 到对应的章节或者外部页面。
 
-本教程中 [蓝色的文字](#) 为超链接，可以 **点击跳转** 到对应的章节或者外部链接。
+为了安全起见，在对教程内容的阅读与实践中，**请确保理解并执行文中完整的步骤**。对于未能完全理解其含义和必要性的步骤，也请尽可能执行，**而非直接跳过**。
 
-## 有问题？
+---
 
-如果对本教程有任何问题或建议，欢迎在本教程的 [GitHub 仓库](https://github.com/cyraivndle2/gpg-tutorial/ "点击前往教程 GitHub 仓库") 提交 Issue 或 Pull Request。
+本教程以 [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/ "点击前往外部站点") 许可协议发布。
+
+如果对本教程有任何问题或建议，欢迎前往本教程的 [GitHub 仓库](https://github.com/cyraivndle2/gpg-tutorial/ "点击前往教程 GitHub 仓库") 提交 Issue 或 Pull Request。
