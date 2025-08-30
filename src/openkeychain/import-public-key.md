@@ -1,5 +1,5 @@
 # 导入公钥
 
-本章节中将介绍 [公钥文本](import-public-key-text.md) 和 [公钥文件](import-public-key-file.md) 的导入方法。
+本章介绍如何导入 [公钥文本](import-public-key-text.md) 与 [公钥文件](import-public-key-file.md) 。
 
-导入方法推荐都学习。
+两种方式均建议掌握。
