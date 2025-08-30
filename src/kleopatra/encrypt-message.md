@@ -1,5 +1,5 @@
 # 加密消息
 
-本章节中将介绍 [文本](encrypt-message-text.md) 或 [文件](encrypt-message-file.md) 的加密方法。
+本章介绍如何加密 [文本](encrypt-message-text.md) 与 [文件](encrypt-message-file.md)。
 
-加密方法推荐都学习。
+两种方式均建议掌握。
