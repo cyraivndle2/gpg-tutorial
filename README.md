@@ -20,7 +20,7 @@ $ mdbook serve -n 127.0.0.1
 
 ## （可选）配置 VS Code 开发环境
 
-使用 VS Code 进行开发的用户可以在项目根目录下创建 `.vscode/settings.json` 文件，并写入以下内容以统一项目风格：
+使用 VS Code 的贡献者如果需要在文中粘贴（或拖拽）插入文件，可以向项目目录下的 `.vscode/settings.json` 文件写入以下内容。该配置可将插入的文件默认存放在与当前 Markdown 文件同名的目录下，以保持项目结构的一致。
 
 ```json
 {
@@ -29,14 +29,6 @@ $ mdbook serve -n 127.0.0.1
     }
 }
 ```
-
-配置项说明：
-
-`markdown.copyFiles.destination`
-
-- 指定 Markdown 在复制/粘贴或拖拽插入文件时的存放路径和文件名。
-- 默认存放在与 Markdown 文件同名的目录下。
-- 此设置为可选项，也可根据需要让多个 Markdown 文件共享同一目录。
 
 ## 许可
 
