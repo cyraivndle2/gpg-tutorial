@@ -4,24 +4,21 @@
 
 1. 浏览器打开 [Gpg4win 下载页面](https://www.gpg4win.org/get-gpg4win.html "点击前往外部站点")。
 
-2. 选择捐赠的金额，然后点击下载按钮下载软件。
-
-    如果不打算捐赠，选择“$0”，然后点击“Download”按钮直接下载软件安装包。
+2. 选择捐赠金额后下载安装包。若不捐赠，选择“$0”，再点击 “Download” 按钮直接下载。
 
     ![不捐赠直接下载](prepare-software/download-without-donation.png)
 
-3. 以管理员权限运行下载好的安装包。
+3. 以管理员权限运行安装包。
 
 4. 点击“下一步”按钮，进入选择组件界面。
 
     ![选择组件](prepare-software/choose-components.png)
 
-5. 根据你的需求勾选要安装的组件：
+5. 勾选加密软件 **Kleopatra**，再按需勾选其他要安装的组件：
 
-    - **Kleopatra**：图形界面加密软件。后续教程将围绕该软件展开，**应当安装**。
-    - **GpgEX**：<a id="gpgex"></a>在资源管理器中右键菜单添加加解密等功能的快捷入口，**推荐安装**。
-    - **GpgOL**：电子邮箱客户端 Outlook 的插件，用于为 Outlook 添加 OpenPGP 支持。
-    - **Okular**：PDF 文档阅读器。支持使用 GPG 签名 PDF 文档，或检查 PDF 文档在进行签名后是否被更改。
+    - **GpgEX**：<a id="gpgex"></a>在资源管理器的右键菜单中提供加解密等功能的快捷入口，**推荐安装**。
+    - **GpgOL**：电子邮件客户端 Outlook 的插件，为其增加 OpenPGP 支持。
+    - **Okular**：PDF 阅读器，支持 PDF 签名与签名校验。
 
 6. 点击“下一步”按钮，按照界面提示完成后续步骤，直至完成软件安装。
 
