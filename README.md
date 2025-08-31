@@ -13,7 +13,7 @@ $ curl -o vendor/cjk-search/elasticlunr.js https://raw.githubusercontent.com/all
 
 $ git describe --tags > src/.version
 
-$ mdbook serve -n 127.0.0.1
+$ mdbook serve -n 127.0.0.1  # 若提示找不到命令，请使用 mdbook 的完整路径，或将其位置添加到 PATH 环境变量
 ```
 
 ## （可选）配置 VS Code 开发环境
