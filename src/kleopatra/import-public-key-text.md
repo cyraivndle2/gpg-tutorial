@@ -34,6 +34,9 @@
 
 7. 在“Passphrase”输入框中输入私钥密码，然后点击“OK”按钮。
 
+    > **提示：**  
+    > Kleopatra 会缓存正确的私钥密码（以及对称密钥），并在短时间内保持私钥的解锁状态。这段时间内，使用私钥时不需要重复输入私钥密码。
+
     ![输入私钥密码](shared/enter-private-key-passphrase.png)
 
 8. 已导入的公钥会显示在 Kleopatra 的证书管理界面中。
