@@ -8,6 +8,6 @@
 
 ---
 
-本教程以 [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/ "点击前往外部站点") 许可协议发布。
+本教程以 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/ "点击前往外部站点") 许可协议发布。
 
-如果对本教程有任何问题或建议，欢迎前往本教程的 [GitHub 仓库](https://github.com/cyraivndle2/gpg-tutorial/ "点击前往教程 GitHub 仓库") 提交 Issue 或 Pull Request。
+如果对本教程有任何问题或建议，欢迎前往本教程的 [GitHub 仓库](https://github.com/cyraivndle2/gpg-tutorial/ "点击前往外部站点") 提交 Issue 或 Pull Request。
