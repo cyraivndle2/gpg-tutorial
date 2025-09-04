@@ -1,3 +1,6 @@
+/**
+ * 外部链接批量调整为在新窗口打开
+ */
 document.addEventListener("DOMContentLoaded", function () {
   const origin = window.location.origin;
 
