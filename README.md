@@ -30,4 +30,8 @@ $ mdbook serve -n 127.0.0.1  # 若提示找不到命令，请使用 mdbook 的�
 
 ## 许可
 
-非对称加密教程（GPG 教程）© 2022-2025 cyraivndle2 以 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议发布，详见 [LICENSE](LICENSE)。
+非对称加密教程（GPG 教程）© 2022-2025 cyraivndle2。
+
+本项目 `script` 目录下的内容以 [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/) 许可协议发布，详见 [LICENSE-MPL](LICENSE-MPL) 。
+
+`script` 目录以外的内容以 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议发布，详见 [LICENSE-CC-BY-NC-SA](LICENSE-CC-BY-NC-SA)。

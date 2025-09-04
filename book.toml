@@ -11,8 +11,9 @@ create-missing = false
 
 [output.html]
 git-repository-url = "https://github.com/cyraivndle2/gpg-tutorial"
+hash-files = true
 additional-js = [
   "vendor/cjk-search/fzf.umd.js",
   "vendor/cjk-search/elasticlunr.js",
-  "res/common/open_link.js",
+  "script/open-external-link/open_link.js",
 ]
