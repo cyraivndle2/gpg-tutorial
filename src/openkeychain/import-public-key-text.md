@@ -2,10 +2,11 @@
 
 1. 收到以 `-----BEGIN PGP PUBLIC KEY BLOCK-----` 开头的公钥文本。
 
-    > 可以通过首行的内容辨别公钥文本和密文文本：
+    > 可以通过文本首行的内容辨别公钥和密文：
     >
-    > 公钥文本首行的英文：BEGIN PGP **PUBLIC KEY BLOCK**  
-    > 密文文本首行的英文：BEGIN PGP **MESSAGE**
+    > - 公钥文本首行的英文：BEGIN PGP **PUBLIC KEY BLOCK**  
+    > - 密文文本首行的英文：BEGIN PGP **MESSAGE**
+    > <br><br>
 
 2. 选择以下一种方式让 OpenKeychain 读取公钥文本。
 
