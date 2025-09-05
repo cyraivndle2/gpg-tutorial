@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-02-08T02:12:45.538Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.16 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="6y2wqDRQox1XVhIORqdp" version="22.1.16" type="device">
-  <diagram name="第 1 页" id="6o3pLhBRLdcL03w6bZhF">
-    <mxGraphModel dx="1450" dy="638" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4" pages="2">
+  <diagram name="step-overview" id="6o3pLhBRLdcL03w6bZhF">
+    <mxGraphModel dx="1442" dy="643" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -34,7 +34,7 @@
         <mxCell id="DIsmVBrg73zC50ADwtmq-11" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;fontFamily=思源黑体;" parent="1" source="DIsmVBrg73zC50ADwtmq-4" target="DIsmVBrg73zC50ADwtmq-7" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="DIsmVBrg73zC50ADwtmq-4" value="导入&lt;br&gt;（别人的）&lt;br&gt;公钥" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fontFamily=思源黑体;" parent="1" vertex="1">
+        <mxCell id="DIsmVBrg73zC50ADwtmq-4" value="导入&lt;br&gt;（他人的）&lt;br&gt;公钥" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fontFamily=思源黑体;" parent="1" vertex="1">
           <mxGeometry x="200" y="68" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="DIsmVBrg73zC50ADwtmq-5" value="加密消息" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fontFamily=思源黑体;" parent="1" vertex="1">
@@ -70,7 +70,7 @@
         <mxCell id="DIsmVBrg73zC50ADwtmq-21" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;fontFamily=思源黑体;" parent="1" source="DIsmVBrg73zC50ADwtmq-22" target="DIsmVBrg73zC50ADwtmq-14" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="DIsmVBrg73zC50ADwtmq-22" value="导入&lt;br&gt;（别人的）&lt;br&gt;公钥" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fontFamily=思源黑体;" parent="1" vertex="1">
+        <mxCell id="DIsmVBrg73zC50ADwtmq-22" value="导入&lt;br&gt;（他人的）&lt;br&gt;公钥" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fontFamily=思源黑体;" parent="1" vertex="1">
           <mxGeometry x="200" y="248" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="DIsmVBrg73zC50ADwtmq-23" value="加密消息" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fontFamily=思源黑体;" parent="1" vertex="1">
@@ -99,6 +99,183 @@
         </mxCell>
         <mxCell id="DIsmVBrg73zC50ADwtmq-29" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;dashed=1;dashPattern=8 8;fontFamily=思源黑体;" parent="1" source="DIsmVBrg73zC50ADwtmq-23" target="DIsmVBrg73zC50ADwtmq-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="zmKkqEmYXFZeKAVo7AVy" name="singleton-step-flow">
+    <mxGraphModel dx="1042" dy="643" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="iGadelqDOO58o_W4cDm0-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="9OpYeAFTKfOUPRblQqsB-1" target="iGadelqDOO58o_W4cDm0-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="9OpYeAFTKfOUPRblQqsB-1" target="iGadelqDOO58o_W4cDm0-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9OpYeAFTKfOUPRblQqsB-1" value="&lt;font&gt;是否已安装&lt;br&gt;加密软件&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="130" y="230" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-1" target="iGadelqDOO58o_W4cDm0-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-1" target="iGadelqDOO58o_W4cDm0-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-1" value="&lt;font&gt;是否已有&lt;/font&gt;&lt;font style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;自&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;己的&lt;/font&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;密钥对&lt;/span&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="270" y="230" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-2" target="iGadelqDOO58o_W4cDm0-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-2" target="iGadelqDOO58o_W4cDm0-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-2" value="对方是否已&lt;div&gt;有你的公钥&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="410" y="230" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-3" target="iGadelqDOO58o_W4cDm0-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="700" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-3" value="你是否已有&lt;div&gt;对方的公钥&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="550" y="230" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-4" target="iGadelqDOO58o_W4cDm0-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-4" target="iGadelqDOO58o_W4cDm0-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-4" value="是否给对方&lt;div&gt;发加密消息&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="690" y="230" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-5" target="iGadelqDOO58o_W4cDm0-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-5" target="iGadelqDOO58o_W4cDm0-64">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-5" value="是否收到给&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;你&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;的&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;加密消息&lt;/span&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="830" y="230" width="125" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-6" target="iGadelqDOO58o_W4cDm0-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-6" value="下载安装&lt;div&gt;加密软件&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="140" y="340" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-7" target="iGadelqDOO58o_W4cDm0-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-7" value="创建密钥对" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="280" y="340" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-8" target="iGadelqDOO58o_W4cDm0-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-8" value="导出&lt;div&gt;自己的公钥&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="420" y="340" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="1jNboD40UEyVmSSGINax-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-9" target="iGadelqDOO58o_W4cDm0-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-9" value="发送公钥&lt;div&gt;给对方&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="420" y="410" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-11" target="iGadelqDOO58o_W4cDm0-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-11" value="导入&lt;div&gt;对方的公钥&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="560" y="340" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-13" target="iGadelqDOO58o_W4cDm0-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-13" value="验证导入的&lt;div&gt;公钥的指纹&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="560" y="410" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-14" target="iGadelqDOO58o_W4cDm0-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-14" value="加密消息" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="700" y="340" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-15" target="iGadelqDOO58o_W4cDm0-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-15" value="发送密文&lt;div&gt;给对方&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="700" y="410" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-16" target="iGadelqDOO58o_W4cDm0-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-16" value="接收密文" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="847.5" y="340" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-17" target="iGadelqDOO58o_W4cDm0-64">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="960" y="435" />
+              <mxPoint x="960" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-17" value="解密密文" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="847.5" y="410" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-26" value="是" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="240" y="245" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-27" value="否" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="190" y="310" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-32" value="是" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="380" y="245" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-41" value="否" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="330" y="310" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-42" value="是" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="520" y="245" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-43" value="否" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="470" y="310" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-50" value="是" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="660" y="245" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-51" value="否" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="620" y="310" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-52" value="验证&lt;div&gt;通过&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="650" y="440" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-57" value="是" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="750" y="310" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-58" value="否" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="800" y="245" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-61" value="是" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="900" y="310" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="iGadelqDOO58o_W4cDm0-62" target="9OpYeAFTKfOUPRblQqsB-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-62" value="开始" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="60" y="255" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-64" value="结束" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="980" y="255" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="iGadelqDOO58o_W4cDm0-66" value="否" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="950" y="245" width="20" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
