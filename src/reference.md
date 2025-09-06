@@ -12,6 +12,7 @@
 
 ## 非对称加密
 
+- [黑客能否盗取微信和QQ中的消息？安全的给小姐姐写信的姿势是什么？HTTPS是怎么回事儿？Anduin讲解信息安全之内容传输安全](https://www.youtube.com/watch?v=Pfv3zHqUUsc "点击前往外部站点")
 - [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography "点击前往外部站点")
 - [Pretty Good Privacy](https://en.wikipedia.org/wiki/Pretty_Good_Privacy "点击前往外部站点")
 - [GNU Privacy Guard](https://en.wikipedia.org/wiki/GNU_Privacy_Guard "点击前往外部站点")
