@@ -2,7 +2,7 @@
 
 ## Windows
 
-1. 浏览器打开 [Gpg4win 下载页面](https://www.gpg4win.org/get-gpg4win.html "点击前往外部站点")。
+1. 浏览器打开 [Gpg4win 下载页面](https://www.gpg4win.org/get-gpg4win.html)。
 
 2. 选择捐赠金额后下载安装包。若不捐赠，选择“$0”，再点击 “Download” 按钮直接下载。
 

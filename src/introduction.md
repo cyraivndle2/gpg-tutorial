@@ -28,4 +28,4 @@
 
 - Windows / Linux 用户推荐使用 **[Kleopatra](kleopatra.md)**。
 - Android 平台可选择 [OpenKeychain](openkeychain.md)，但该软件已停止维护，原则上不再推荐。
-- 其他平台的用户可在 [OpenPGP Software](https://www.openpgp.org/software/ "点击前往外部站点") 中寻找合适的软件，或自行搜索。
+- 其他平台的用户可在 [OpenPGP Software](https://www.openpgp.org/software/) 中寻找合适的软件，或自行搜索。

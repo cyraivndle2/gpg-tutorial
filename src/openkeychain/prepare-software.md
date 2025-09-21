@@ -1,6 +1,6 @@
 # 准备软件
 
-1. 浏览器打开 OpenKeychain 的 [F-Droid 下载页面](https://f-droid.org/packages/org.sufficientlysecure.keychain/ "点击前往外部站点")。
+1. 浏览器打开 OpenKeychain 的 [F-Droid 下载页面](https://f-droid.org/packages/org.sufficientlysecure.keychain/)。
 
 2. 点击最新版本对应的“下载 APK”链接。
 
