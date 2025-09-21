@@ -34,3 +34,9 @@
 ## 语义化版本
 
 - [语义化版本 2.0.0](https://semver.org/lang/zh-CN/ "点击前往外部站点")
+
+## 图片压缩
+
+- [Caesium Image Compressor](https://github.com/Lymphatus/caesium-image-compressor "点击前往外部站点")
+- [SVGOMG](https://jakearchibald.github.io/svgomg/ "点击前往外部站点")
+- [SVGO](https://svgo.dev/ "点击前往外部站点")
