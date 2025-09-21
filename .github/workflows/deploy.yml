@@ -46,11 +46,7 @@ jobs:
         with:
           mdbook-version: 'latest'
 
-      - name: Setup image optimizers and code minifiers
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y webp
-          npm i -g svgo terser html-minifier-terser clean-css-cli
+      # [Obsoleted] Setup image optimizers and code minifiers
 
       # https://github.com/rust-lang/mdBook/issues/2052
       - name: Setup mdBook extension - CJK (Multiple language) Search
@@ -65,28 +61,8 @@ jobs:
       - name: Build book
         run: mdbook build
 
-      - name: Optimize images
-        run: |
-          # PNG/JPG/JPEG 转换为 WebP 并删除原始 PNG/JPG/JPEG
-          find book -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) -print0 \
-            | xargs -0 -n1 -P8 sh -c 'for f; do cwebp -q 50 -m 6 "$f" -o "${f%.*}.webp"; rm "$f"; done' sh
-
-          # 替换 HTML 中的图片引用为 .webp
-          find book -type f -name '*.html' -exec sed -i -E 's/\.(png|jpg|jpeg)"/.webp"/g' {} \;
-
-          # 压缩 SVG（保持原格式）
-          find book -type f -iname '*.svg' -exec svgo --multipass --precision=2 {} \;
-
-      - name: Minify code
-        run: |
-          # 压缩 JS
-          find book -type f -name '*.js' -exec terser {} -o {} --compress --mangle \;
-          # 压缩 CSS
-          find book -type f -name '*.css' -exec cleancss -o {} {} \;
-          # 压缩 HTML
-          find book -type f -name '*.html' -exec html-minifier-terser \
-            --collapse-whitespace --remove-comments --minify-js true --minify-css true \
-            -o {} {} \;
+      # [Obsoleted] Optimize images
+      # [Obsoleted] Minify code
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
