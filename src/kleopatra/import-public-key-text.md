@@ -8,11 +8,12 @@
     > - 密文文本首行的英文：BEGIN PGP **MESSAGE**
     > <br><br>
 
-2. 进入 Kleopatra 的记事本界面，并切换到“记事本”选项卡。
+2. 进入 Kleopatra 的证书管理界面，然后点击工具栏上的“记事本”按钮进入记事本界面。
 
+    ![证书管理界面-“记事本”按钮](shared/notepad-button.png)
     ![记事本](shared/notepad.png)
 
-3. 将公钥文本复制到“记事本”选项卡下方的文本框中，然后点击“导入记事本”按钮。
+3. 将公钥文本复制到记事本界面左侧的文本框中，然后点击下方的“导入记事本”按钮。
 
     ![粘贴公钥和导入记事本](import-public-key/paste-and-import.png)
 
