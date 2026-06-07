@@ -16,13 +16,13 @@
 
 2. 回到 Kleopatra 的证书管理界面，**双击** 需要导出的公钥。
 
-3. <a id="fingerprint"></a>进入证书细节界面，通过截图等方式记录指纹，用于后续的验证。
+3. <a id="fingerprint"></a>通过截图等方式记录证书细节窗口中的指纹，用于后续的验证。
 
     > 每个公钥都有 **唯一对应** 的指纹，可用于验证公钥在发送过程中是否被篡改。
 
     ![证书细节](export-public-key/certificate-detail.png)
 
-4. 等待对方发来 [导入的公钥的指纹](import-public-key-file.md#fingerprint)，并校验其与 [实际的公钥指纹](#fingerprint) 是否一致。
+4. 等待对方发来 [导入的公钥的指纹](import-public-key-file.md#fingerprint)，并校验其与 [导出的公钥的指纹](#fingerprint) 是否一致。
 
     - 如果一致，说明公钥发送成功，应告知对方校验结果。
     - 如果不一致，表明对方收到的公钥可能被篡改，应排查操作问题并重新发送公钥。若未发现问题，说明当前通信平台可能试图进行中间人攻击（MITM），应中止流程并停止使用该平台。
