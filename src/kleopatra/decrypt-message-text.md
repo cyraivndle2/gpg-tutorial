@@ -8,12 +8,11 @@
     > - 密文文本首行的英文：BEGIN PGP **MESSAGE**
     > <br><br>
 
-2. 进入 Kleopatra 的证书管理界面，然后点击工具栏上的“记事本”按钮进入记事本界面。
+2. 在 Kleopatra 中，点击工具栏上的“记事本”按钮。
 
-    ![证书管理界面-“记事本”按钮](shared/notepad-button.png)
-    ![记事本](shared/notepad.png)
+    ![记事本按钮](shared/notepad-button.png)
 
-3. 将密文文本粘贴到记事本界面左侧的文本框中，然后点击界面左下角的“解密/验证记事本内容”按钮。
+3. 把密文文本粘贴到弹出的记事本窗口中，然后点击左下角的“解密/验证记事本内容”按钮。
 
     ![解密密文文本](decrypt-message/decrypt-text.png)
 
@@ -21,6 +20,6 @@
 
     ![输入私钥密码](shared/enter-private-key-passphrase.png)
 
-5. 解密得到的文本会取代先前的密文文本出现在记事本界面左侧的文本框中。
+5. 解密得到的文本会取代先前的密文文本出现在左侧文本框中。
 
     ![文本解密结果](decrypt-message/decrypted-text.png)
