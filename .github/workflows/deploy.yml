@@ -1,4 +1,4 @@
-name: build and Deploy mdBook
+name: build and deploy mdBook
 
 on:
   # https://github.com/orgs/community/discussions/25615
@@ -30,7 +30,7 @@ jobs:
     if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository }}
     steps:
       - name: Checkout source repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           fetch-tags: true
@@ -65,7 +65,7 @@ jobs:
       # [Obsoleted] Minify code
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: './book'
 
@@ -79,4 +79,4 @@ jobs:
     steps:
       - name: Deploy artifact
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
