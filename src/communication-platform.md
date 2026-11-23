@@ -4,7 +4,6 @@
 
 - [hack.chat](https://hack.chat/)：匿名、无记录的临时网页文本聊天室。
 - **[chocoChat](https://chat.freserafim.com/zh-CN/)**：匿名网页聊天室，支持文本与图片；会保留消息，支持手动删除。
-- **[十条](https://only10.chat/)**：匿名网页聊天室，支持文本、图片与语音；聊天室仅保留最新 10 条消息，不支持手动删除。
 - **[Delta Chat](https://delta.chat/)**：基于电子邮件的跨平台端到端加密聊天应用；官方服务器仅需昵称即可注册，云端仅短期记录消息。
 - [Telegram](https://telegram.org/)：功能丰富、用户广泛；支持长期保存聊天记录，但注册流程相对繁琐。
 - [Element](https://element.io/)：基于 Matrix 协议的端到端加密聊天应用，提供前向安全性。
