@@ -9,12 +9,14 @@
 
 以下推荐一些免登录的文本分享网站：
 
-- **[Pastebin](https://pastebin.com/)**：支持长期保存、阅后即焚与设置过期时间，删除需要登录；每天创建分享的数量有限制。
-- **[Paste2](https://paste2.org/)**：不支持删除。
-- **[Paste.ee](https://pastee.dev/)**：支持长期保存、阅后即焚与设置过期时间；不支持删除。
-- **[uPaste](https://upaste.de/)**：固定 1 小时过期；不支持删除。
-- **[Hastebin](https://hastebin.ianhon.com/)**：不支持删除。
+- **[Pastebin.ai](https://pastebin.ai/)**：支持设置过期时间、阅后即焚、加密和删除。
+- **[Hastebin](https://hastebin.ianhon.com/)**：支持设置过期时间和加密，不支持删除。
 - **[OneTimeSceret](https://onetimesecret.com/)**：仅支持阅后即焚。
+- **[Pastebin](https://pastebin.com/)**：支持长期保存、阅后即焚与设置过期时间，删除需要登录；每天创建分享的数量有限制。
+- **[Paste.ee](https://pastee.dev/)**：支持长期保存、阅后即焚与设置过期时间；不支持删除。
+- **[Paste2](https://paste2.org/)**：不支持删除。
+- **[uPaste](https://upaste.de/)**：固定 1 小时过期；不支持删除。
 - **[Pastebin Worker](https://shz.al/)**：支持文本与文件；支持设置过期时间，支持更新与删除。若查看分享内容时出现错误，可尝试升级或更换浏览器[^response-bytes]。
+- **[PasteBox](https://pastebox.io/zh)**：支持长期保存、阅后即焚与设置过期时间；不支持删除。
 
 [^response-bytes]: 由于网站使用了 [`Response.bytes()`](https://developer.mozilla.org/en-US/docs/Web/API/Response/bytes#browser_compatibility) API，浏览器（或其内核）版本需不低于 Chromium 132 或 Firefox 128 等。
