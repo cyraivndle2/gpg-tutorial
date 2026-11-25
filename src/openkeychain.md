@@ -1,12 +1,8 @@
-<div class="warning">
-
-**警告：**
-
-**OpenKeychain 已经过时且停止维护，不建议再使用。推荐改用 PC 上的 Kleopatra。**
-
-OpenKeychain 在尝试解密较新版本 GPG 的密文时可能会发生错误。若坚持使用 OpenKeychain，则双方需要都使用该应用来创建密钥对和加解密消息。
-
-</div>
+> [!WARNING]
+> 
+> **OpenKeychain 已经过时且停止维护，不建议再使用。推荐改用 PC 上的 Kleopatra。**
+> 
+> OpenKeychain 在尝试解密较新版本 GPG 的密文时可能会发生错误。若坚持使用 OpenKeychain，则双方需要都使用该应用来创建密钥对和加解密消息。
 
 # OpenKeychain
 
